@@ -1,4 +1,4 @@
-package com.adidas.design.patterns.singleton.naivesingleton;
+package com.adidas.design.patterns.creational.singleton.naivesingleton;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
