@@ -1,0 +1,126 @@
+In this lecture, we're going to learn about a new type of thread, which is called a virtual thread.
+
+We'll first review what we already know about the relationship between the Java Thread class and the
+
+OS threads.
+
+
+So first, to understand the difference between virtual threads and the threads we've been using so
+
+far, let's review the relationship between the threads we've been creating and the OS threads.
+
+Whenever we created an object of type thread, that object, among other things, contains the code
+
+that it needed to execute and the start method.
+
+When we run that start method, we ask the OS to create and start a new OS thread belonging to our applications
+
+process and ask the JVM to allocate a fixed size stack space to store the threads local variables from
+
+that point on.
+
+The OS is fully responsible for scheduling and running the thread on the CPU, just like any thread
+
+it manages.
+
+So in a sense that thread object inside the JVM is just a thin layer or wrapper around an OS thread.
+
+From now on we're going to call this type of Java thread a platform thread as we've already seen before.
+
+Those platform threads are expensive and heavy, and that's because each platform thread maps 1 to 1
+
+to an OS thread, which is a limited resource and it is also tied to a static stack space within the
+
+JVM.
+
+So now that we've introduced the term platform threads and reviewed everything we already knew about
+
+them, let's talk about another type of thread which is called virtual thread.
+
+Virtual threads are a relatively newer type of thread that has been introduced as part of JDK 21.
+
+So if you're still using an older version of the JDK and would like to use virtual threads, all you
+
+need to do is upgrade your JDK to the latest version.
+
+Like platform threads.
+
+Virtual threads contain, among other things, the code we want to execute concurrently and the start
+
+method.
+
+However, unlike a platform thread, a virtual thread fully belongs and is managed by the JVM and does
+
+not come with a fixed size stack.
+
+The OS takes no role in creating or managing it and is not even aware of it.
+
+In fact, a virtual thread is just like any Java object allocated on the heap and can be reclaimed by
+
+the Jvm's garbage collection when it is no longer needed.
+
+The consequences of those facts is that unlike platform threads which are very expensive to create and
+
+heavy to manage, virtual threads are very cheap and fast to create in large quantities.
+
+--------------------------------------------------------------------------------------------------------
+
+Now a good question you may ask at this point is if virtual threads are just Java objects, how do they
+
+actually run on the CPU for this purpose?
+
+As soon as we create at least one virtual thread under the hood, the JVM creates a relatively small
+
+internal pool of platform threads.
+
+And now whenever the JVM wants to run a particular virtual thread, thread A, it mounts it on one of
+
+the platform threads within its pool.
+
+When a virtual thread is mounted on a platform thread, that platform thread is called a carrier thread.
+
+Now, if the virtual thread finishes its execution, the JVM will unmount that thread from its carrier
+
+and make that platform thread available for other virtual threads.
+
+That virtual thread object now becomes garbage that the garbage collection can clean up at any time.
+
+However, in certain situations, if Thread A has not finished but is unable to make any progress at
+
+that time, the JVM will unmount it but save its current state on the heap.
+
+We will talk about what those situations are later in the course.
+
+That state includes its instruction pointer and the snapshot of the carrier thread stack.
+
+At that point, the JVM can use this platform thread to mount another virtual thread on it.
+
+For example, thread B later(some other thread) , when thread A is able to continue, the JVM can do one of the following.
+
+If another platform thread is currently available and does not carry any other virtual thread, it will
+
+simply mount virtual thread A on it.
+
+On the other hand, if there isn't any available platform thread at that moment, thread A will just
+
+have to wait when one of the virtual threads for instance thread B running on a carrier thread can no
+
+longer make any progress, the JVM will unmount thread B by copying its state from the carrier thread
+
+to the heap and then mount thread a back on that carrier thread by setting the carrier threads instruction
+
+pointer to that of the virtual thread a instruction pointer and also copy the snapshot of thread a stack
+
+data from the heap back to the carrier threads stack memory.
+
+It's worth pointing out that we, the developers, have very little control over the carrier threads
+
+and the scheduling of virtual threads on them.
+
+It is something that the JVM manages for us under the hood.
+
+----------------------------------------------------------------------------------------------
+
+This shouldn't be new to us because the scheduling of platform threads was also out of our control and
+
+was fully managed by the operating system.

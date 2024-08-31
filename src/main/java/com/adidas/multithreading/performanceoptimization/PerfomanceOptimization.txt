@@ -1,0 +1,81 @@
+Performance in Multithreading:
+
+Latency : The time to complete a particular task is called as Latency
+
+Improving a Latency :
+    If we have a single task that can be completed by a single thread sequentially(Latency T) we can break
+    that task by factor of N( N independent tasks) now we can schedule the tasks to run in different threads parallely so this way we
+    achieved Latency of (T/N) so we achieved a Theoretical reduction of latency by N = Performance improvement by a factor of N.
+    (This is not the way but let's say N sub-tasks task T time now 1 sub-task will take T/N time)
+
+    First of all if we need to understand these questions:
+        1. We need to understand what is N how to understand how many subtasks/threads to break the original task
+        2. Does breaking the original task and aggregating results come for free?
+        3. Can we break all the tasks into subtasks ?
+
+    Solution theoretically N should be the number of cores so that each task is scheduled parallely on each core, so for quad core
+    CPU N cores N tasks but the problem is if there any more number of tasks( let's say 5 )  that would be inventoryCounter-productive as the tasks
+    need to be scheduled, context switches, memory consumption  need to be done etc etc
+
+    # - "number of"
+
+        1. #threads = #cores is optimal only if all threads are runnable and can run without interruption(no IO/blocking calls/ sleep etc)
+        2. The assumption is nothing else is running that consumes a lot of CPU.
+
+    the last note is in fact all computers today use what's called Hyper-threading, wherein a single physical core can run two
+    threads at the time that is achieved by having some hardware unit duplicated to run some threads in parallel and some hardware unit shared.
+
+        About Hyper-threading:
+            Hyper-threading explained: It's a technology by Intel (similar technologies exist from other manufacturers with different names) that allows a single physical core in a CPU to act like two cores to the operating system. This is achieved by duplicating certain parts of the core that manage tasks (not the core itself) and sharing others.
+
+            Impact: With hyper-threading, the CPU can handle two threads (think of them as mini-programs) at the same time, improving performance for tasks that can be broken down into multiple threads.
+
+            Not all computers: While hyper-threading is common in modern CPUs, it's not universal. Budget laptops or very basic machines might have simpler processors without it. You can usually check your system specifications to see if your CPU supports hyper-threading.
+
+            Here's a clearer way to understand the quoted part:
+
+            "Single physical core can run two threads at the time": This is the core concept of hyper-threading. One physical core acts like two logical cores to the operating system.
+
+            "Duplicated hardware unit": This refers to the parts of the core that manage tasks, like thread states. These are duplicated for each logical core.
+
+            "Shared hardware unit": The core itself and some other resources are still shared between the logical cores.
+
+            I hope this clarifies the concept of hyper-threading!
+
+    next question that needs to be answered is the inherent cost of Parallelization and Aggregation, if the task is easily broken into multiple, we would have to incur these minimum costs :
+
+        1. breaking task into multiple tasks
+        2. Thread creation, passing tasks to threads
+        3. Time between thread.start() to thread getting scheduled
+        4. Time until the last thread is scheduled and completed
+        5. Time until the aggregating thread(the main thread) runs(waiting and joining on the results)
+        6. Aggregation of the subresults into a single artifact(task).
+
+    There is a graph in the filepath "performanceoptimization/latency/resources/Multithreaded-vs-Single-threaded-task.png" which shows the larger tasks should be broken up
+    as we can bring better performance with the multi-threaded approach
+
+    so the cross-section would decide where the single-threaded approach would be better for shorter task that is the intersection point in the graph.
+    key-take away small tasks should not be broken up and done in parallel.
+
+    so all tasks cannot be broken up
+
+Throughput: The number of task completed in a given period of time(usually in seconds). Measured in tasks/time unit
+
+    Approach 1: Breaking tasks into subtasks
+        Original one Task taking is taking T time then Throughput is 1/T
+        so just like before Latency -> T/N  so now ThroughPut = N/T but in practice it is much lesser than the < N/T because we introduce the overhead
+        of Inherent Cost of Parallelization and Aggregation
+
+    Approach 2: Running Tasks in Parallel (Each task in separate thread) so ThroughPut = N/T
+        so as the tasks are unrelated and inherrently  different from each other we would not have the overheads same in Latency fo 1, 4, 5, 6  (same as Latency) and again using more
+        advanced techniques like Thread pooling etc we can minimize 2,3
+
+        Threadpooling is the process where threads are created once , kept and reused for different tasks in the future as and when the tasks arrive,
+        This is helpful as threads are not created everytime from scratch for new tasks
+
+        now if we see the image in the performanceoptimization/throughput/resources/learningfiles/Tasks_flowing_to_threadpool_waiting.jpg we can understand that threads in the threadpool are busy and in the queue the tasks are waiting
+        to be picked up by the threads
+        so the throughput is 4 tasks/second
+
+
+

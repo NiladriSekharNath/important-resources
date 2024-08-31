@@ -1,0 +1,10 @@
+
+    1.  If we see the "Speedup_multi-threaded-vs-Sequential.png" file we need to understand when the image was of large pixel size
+        then we partitioned the images performed executions of each partition in different threads which actually gave a speed up of 75%  but as the resolution was lowered the speed up
+        went down to negative speeds of -25% which means the overhead of splitting the images to different threads and executing was
+        not inventoryCounter-productive when the image to be processed was not so large.
+
+    2.  In the "PerformanceAnalysisQuadCoreCPU_having4PhyCores_8VerCores.png" file we need to understand that when we increase the number of threads in the multi-threaded approach from 1 to #physical cores and higher
+        in the #Virtual cores the latency is lowest but if we increase upwards of #Virtual cores the performance there is no change also test is performed in a system which is not optimized for our code
+
+

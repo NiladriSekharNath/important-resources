@@ -1,0 +1,57 @@
+what is the purpose of sendAsync() as we understand in Java ?
+
+
+Purpose of sendAsync() in Java
+
+sendAsync() is a crucial method for performing asynchronous HTTP requests in Java. It's part of the java.net.http.HttpClient class, introduced in Java 11.  
+
+Key purpose:
+
+Non-blocking operations: Enables your application to continue executing other tasks while waiting for the HTTP response, improving overall performance and responsiveness.  
+Efficient handling of multiple requests: Allows you to send multiple requests concurrently without blocking the main thread, making it suitable for I/O-bound applications.
+Simplified asynchronous programming: Returns a CompletableFuture object, which provides a convenient way to handle the asynchronous result using methods like thenApply, thenCompose, and exceptionally.
+How it works:
+
+Create an HTTP request: Construct an HttpRequest object specifying the method, URL, headers, and body.
+Send the request: Call sendAsync() on the HttpClient instance, passing the HttpRequest as an argument. This initiates the asynchronous request.
+Handle the response: The method returns a CompletableFuture<HttpResponse<T>> object. You can attach callbacks to this CompletableFuture to handle the response when it arrives.
+Example:
+
+Java
+import java.net.http.*;
+import java.net.URI;
+import java.util.concurrent.CompletableFuture;
+
+public class AsyncHttpClientExample {
+    public static void main(String[] args) throws Exception {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://api.example.com/data"))  
+
+                .build();  
+
+
+        CompletableFuture<HttpResponse<String>> futureResponse = client.sendAsync(
+                request,
+                HttpResponse.BodyHandlers.ofString()
+        );
+
+        futureResponse.thenApply(HttpResponse::body)  
+
+                .thenAccept(System.out::println)
+                .exceptionally(ex -> {
+                    System.err.println("An error occurred: " + ex.getMessage());
+                    return null;
+                });
+    }
+}
+Use code with caution.
+
+Key points to remember:
+
+sendAsync() is non-blocking, meaning your code can continue executing while the request is in progress.
+The returned CompletableFuture allows you to handle the response asynchronously using various methods.
+Error handling is essential using exceptionally to gracefully handle exceptions.
+By effectively using sendAsync(), you can create more responsive and efficient Java applications that can handle multiple HTTP requests concurrently.
+
+Would you like to see a more complex example or learn about specific use cases for sendAsync()?

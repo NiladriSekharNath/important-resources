@@ -1,0 +1,89 @@
+By far the most powerful operation that the Reentrant lock provides us is the tri lock operation, which
+
+I already briefly mentioned in the lecture about deadlocks.
+
+The try-lock operation tries to acquire the lock, just like the regular lock.
+
+And if the lock is available, then the try lock will simply acquire the lock and also return True.
+
+However, if the lock is currently unavailable, instead of blocking the thread, the method simply
+
+returns false and moves on to the next instruction.
+
+It's easier to understand how the try-lock works and why it's useful by comparing it to the conventional
+
+lock method side by side.
+
+What we have here is the same logic, both on the right and on the left.
+
+But on the left we are using the regular lock method and on the right we're using the try-lock method
+
+to acquire the lock.
+
+Let's walk through the scenario of the lock being available at the time we're trying to acquire it.
+
+When using the regular lock method, the lock will get acquired, preventing any other thread from entering
+
+the critical section, and we would simply move to the next instruction inside the critical section
+
+where we would safely use the shared resource.
+
+Then, once the thread is done using the shared resource, it would call the unlock method to allow
+
+other threads to access the shared resource.
+
+If we perform the same logic, calling the try lock, the try-lock method would also result in acquiring
+
+the lock, but it would also return true to let us know that the lock was successfully acquired by the
+
+current thread.
+
+From that point on, the flow is similar.
+
+The thread would use the shared resource and when it's done it would release the lock by calling the
+
+unlock method.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+The big difference is in the second scenario in which the lock has already been acquired by another
+
+thread and is currently unavailable in this scenario, when we use the regular lock method, once the
+
+thread calls it, the thread would not be able to go any further and would block until the lock becomes
+
+available again as shown in the picture "in-scen-lock-curr-locked-by-other-thr_new-thr-ente-gets-stop-asshown-until-curr-lock-unlok.png"
+
+Only when the lock is released by the lock's current owner(thread holding the lock), the thread waiting on the lock which was blocked
+
+would wake up, acquire the lock and move to the next instruction in critical section.
+
+If we use the try-lock method when the lock is already held by another thread, the method would not
+
+block.
+
+Instead, the try-lock would return false immediately, which would let us know that the lock does not
+
+belong to us and we must not use the shared resource.
+
+The thread then can jump to execute some different code in the else statement that does not need to
+
+use the shared resource and in the future may come back to try and acquire the lock again.
+
+Notice that under no circumstances the try-lock method blocks regardless of the state of the lock,
+
+it would always return immediately.
+
+The try-lock method of acquiring a lock has very important use cases in real time applications where
+
+suspending the thread on a lock is unacceptable.
+
+Examples of real time applications include video or image processing, high speed, low latency systems
+
+for trading or applications that have a user interface thread.
+
+In all those examples, blocking or suspending a thread will lead to the application not being responsive
+
+or not meeting its requirements.
+
+But there is still a need to share a resource with other non-real-time threads and do so safely.

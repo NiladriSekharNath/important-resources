@@ -1,0 +1,112 @@
+In the previous lecture, we mentioned that virtual threads are nothing more than Java objects, representing
+
+a task we want to execute concurrently in our application.
+
+And to actually execute that task, the JVM needs to schedule and mount that virtual thread on a carrier
+
+thread within its pool of platform(carrier) threads.
+
+If the tasks virtual threads represent contain only CPU operations.
+
+Virtual threads don't give us any performance benefit, and the virtual thread abstraction is simply
+
+reduced to scheduling many tasks on a small pool of threads(platform threads) in the order of their arrival.
+
+
+However, if the code we want to execute by those virtual threads contains operations that require the
+
+thread to wait for a long time(blocking task), ideally, virtual threads can be extremely useful for performance.
+
+To illustrate this, let's revisit the scenario of an online store web application running on a single
+
+core computer that we've seen before.
+
+/**
+* please see the image in the "per-improv-invirtual-1_uses-non-blockingio-please see the notes.png"
+**/
+
+One more time.
+
+Going back to the thread per task programming model with blocking IO API.
+
+Our code will look like this.
+
+However, this time we'll use virtual threads instead of platform threads to handle the incoming requests
+
+from users.
+
+When the first request arrives from a user, we'll create a virtual thread to handle it.
+
+The JVM will then mount that virtual thread on a platform thread to be its carrier, and execute the
+
+code within that virtual thread.
+
+However, when it runs, this blocking I/O operation to read from the database, it first checks whether
+
+the thread it's running on is a platform thread or a virtual thread.
+
+If it's a virtual thread, like in our case, instead of blocking the carrier thread, it simply unmounts
+
+the virtual thread.
+
+To achieve this, the JVM internally uses a non-blocking version of this network operation, but hides
+
+all of this complexity from us.
+
+So from our perspective, we see the familiar and easy to use blocking API.
+
+Now, when another request from another user arrives in our application, we create a new virtual thread
+
+to handle it.
+
+Creating this virtual thread is cheap because we don't need to allocate a new thread or a new stack
+
+frame for it, and now our JVM will mount that new virtual thread on its internal platform thread to
+
+be its carrier, and run its code until it encounters a long blocking operation.
+
+In a similar way to the first request, once the virtual thread attempts to execute a long blocking
+
+I/O operation, the JVM will instead use a non-blocking I/O implementation and simply unmount the virtual
+
+thread from the carrier thread, so this can go on and on until we finally get a response from the database
+
+for the first request from the user.
+
+At this point, the JVM will mount back the first virtual thread and continue executing our code from
+
+the point where it paused that thread, and then it will proceed to complete the handling of the user
+
+request.
+
+When the handling of the request is done, that virtual thread is no longer needed, so it can be thrown
+
+away and later be collected by the Jvm's garbage collection.
+
+Similarly, when we get the response from the database for the next requests, the JVM will mount the
+
+virtual thread back on the carrier thread, execute the code, and dispose of the virtual thread as
+
+it is no longer needed.
+
+Notice that just like in the case of non-blocking, I/o, we don't have any context switch overhead
+
+when we use virtual threads, and that's because the OS is not involved in the scheduling.
+
+All that happens is the JVM simply stops the execution of one piece of code, which belongs to a blocked
+
+virtual thread, and either starts or continues the execution of another piece of code belonging to
+
+another virtual thread.
+
+It's worth pointing out that unmounting a blocked virtual thread, and creating and mounting a new virtual
+
+thread does have some overhead, but it's relatively much smaller than a context switch that involves
+
+the OS.
+
+Also notice that because our application ran on a single core computer, the size of the jvm's pool
+
+of platform threads is one, but if we had more cores, the JVM will likely automatically create more
+
+platform threads not exceeding the number, of cores(or virtual cores)
