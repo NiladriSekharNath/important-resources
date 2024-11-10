@@ -12,9 +12,10 @@ public class TestChainCalculation {
         chainCalc2.setNextChain(chainCalc3);
         chainCalc3.setNextChain(chainCalc4);
 
-        Numbers request = new Numbers(4, 2, "multiply");
+        Numbers request1 = new Numbers(4, 2, "multiply");
+        Numbers request2 = new Numbers(8, 2, "multiply");
 
-        chainCalc1.calculate(request);
+        chainCalc1.calculate(request1);
 
 
     }

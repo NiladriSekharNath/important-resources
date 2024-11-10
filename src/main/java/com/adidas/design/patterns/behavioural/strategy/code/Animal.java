@@ -53,4 +53,6 @@ public class Animal {
         this.flyingType = flyingType;
     }
 
+    
+
 }
