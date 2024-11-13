@@ -29,7 +29,7 @@ public class UserService {
 
   private UserDTO convertDTOToUser(User user) {
     UserDTO userDTO = new UserDTO();
-    userDTO.setName(user.getUserName());
+    userDTO.setUserName(user.getUserName());
     userDTO.setMail(user.getEmail());
     userDTO.setUserId(user.getUserId());
     return userDTO;
