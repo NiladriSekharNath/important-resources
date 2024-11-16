@@ -60,6 +60,24 @@ public class FindIntersectionPointOfTwoLinkedList {
 
   /**
    * approach 2 we will see and use this here
+   *
+   * idea same as above but we have two pointers one pointing to headA and the other pointing to headB
+   * and we keep moving, once one pointer becomes null we move that pointer to the other head doing so we have
+   * make the pointer pointing in the longer list travel the difference in distance for better understanding please
+   * refer the link below
+   * https://takeuforward.org/data-structure/find-intersection-of-two-linked-lists/
    */
 
+  public ListNode getIntersectionNode_Optimised(ListNode headA, ListNode headB){
+
+    if(headA == null || headB == null) return null;
+
+    ListNode leftPointer = headA, rightPointer = headB ;
+    while(leftPointer != rightPointer){
+      leftPointer = leftPointer == null ? headB: leftPointer.next;
+      rightPointer = rightPointer == null ? headA : rightPointer.next;
+    }
+
+    return leftPointer;
+  }
 }

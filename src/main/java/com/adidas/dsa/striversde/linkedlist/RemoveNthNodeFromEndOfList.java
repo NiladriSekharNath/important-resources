@@ -36,7 +36,7 @@ public class RemoveNthNodeFromEndOfList {
    * 6th node then there is a problem for my case I have not deleted anything just returned the list
    */
 
-  public ListNode DeleteNthNodefromEnd(ListNode head, int N) {
+  public ListNode deleteNthNodefromEnd(ListNode head, int N) {
     // Create two pointers, fastp and slowp
     ListNode fastp = head;
     ListNode slowp = head;

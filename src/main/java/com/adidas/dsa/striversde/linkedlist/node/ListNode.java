@@ -13,6 +13,7 @@ public class ListNode {
   }
 
   public ListNode(int val){
-    new ListNode(val, null);
+    this.val = val;
+    this.next = null;
   }
 }
