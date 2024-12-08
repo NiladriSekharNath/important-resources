@@ -28,13 +28,16 @@ package com.adidas.dsa.striversde.binarysearch;
  *
  * For left Half ----------------------------------------------------------------------------------------------
  *
- * we can see that for a number, if the index = positive -> 1st Occurence is even and the next occurence is odd
+ * we can see that for a number, if the index = positive -> 1st Occurrence is even and the next occurrence is odd
  *
- * let's say for 1 -> first occurence at 0(positive), second occurence at 1(negative)
+ * let's say for 1 -> first occurrence at 0(odd), second occurrence at 1(even)
  *
  * For Right half --------------------------------------------------------------------------------------------
  *
- * for the
+ * for the if we take any number, let's say 7, the first occurrence is odd index 9 and second occurrence even
+ *
+ * so we need to find the target element, hence we are trimming our search space, because ideally our number if it's in the right half
+ * we need to move left and if we are in the left half we need to move right
  *
  */
 public class SingleNonDuplicate {
