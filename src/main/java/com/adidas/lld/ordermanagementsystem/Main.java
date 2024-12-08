@@ -79,7 +79,7 @@ public class Main {
     ProductCategory productCategoryIWantToOrder = null;
     for(ProductCategory productCategory : inventory.productCategoryList){
 
-      if(productCategory.categoryName.equals("Peppsii Large Cold Drink")){
+      if(productCategory.categoryName.equals("Peppsi Large Cold Drink")){
         productCategoryIWantToOrder = productCategory;
       }
     }

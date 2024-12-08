@@ -22,7 +22,7 @@ import com.adidas.dsa.striversde.linkedlist.node.ListNode;
 public class HasCycle {
   public boolean hasCycle(ListNode head) {
     ListNode slowPointer = head, fastPointer = head;
-    while(fastPointer != null && fastPointer.next!=null){
+    while (fastPointer != null && fastPointer.next != null) {
 
 
       slowPointer = slowPointer.next;

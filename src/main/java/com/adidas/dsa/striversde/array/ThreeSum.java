@@ -35,6 +35,10 @@ public class ThreeSum {
    *
    * and in order to avoid the same element from taken more than once we are doing this :
    *
+   * to understand this let's consider below example we can say this that we are searching for i = 3 and j = 5 so our target = -(arr[i] + arr[j] ) is 2,
+   * we cannot simply save all the values in hashset(or any other data structure) to find the value for index 3 since we require to find a value 2
+   * as we need to find 3 different numbers hence the approach below (we simply try to search the values in the index range [3, 5] if they belong to the set
+   *
    * indices = [0, 1,2,3, 4, 5]
    * nums =    [-1,0,1,2,-1,-4] at any particular i = 1 , j = 4 we are searching for the sum '-(nums[i] + nums[j])' from a set
    * that has values in the range greater than index 1 and less than index 4 meaning in the range [2, 3]

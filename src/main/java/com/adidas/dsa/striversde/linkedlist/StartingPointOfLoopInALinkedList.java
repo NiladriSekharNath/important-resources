@@ -13,7 +13,7 @@ import com.adidas.dsa.striversde.linkedlist.node.ListNode;
  */
 public class StartingPointOfLoopInALinkedList {
   public ListNode detectCycle(ListNode head) {
-  ListNode slowPointer = head, fastPointer = head, position = null;
+  ListNode slowPointer = head, fastPointer = head ;
   while(fastPointer != null && fastPointer.next != null){
     slowPointer = slowPointer.next;
     fastPointer = fastPointer.next.next;
@@ -21,7 +21,7 @@ public class StartingPointOfLoopInALinkedList {
     if(slowPointer == fastPointer) break;
   }
 
-  if(fastPointer == null || fastPointer.next == null) return position;
+  if(fastPointer == null || fastPointer.next == null) return null;
 
   slowPointer = head;
   while(slowPointer != null && fastPointer != null){

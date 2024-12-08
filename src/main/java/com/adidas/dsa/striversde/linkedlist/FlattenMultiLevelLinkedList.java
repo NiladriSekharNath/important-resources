@@ -37,6 +37,10 @@ public class FlattenMultiLevelLinkedList {
     return head;
   }
 
+  /**
+   * Approach 2
+   *
+   */
   Node flattenUsingMergeProperties(Node root) {
     return flattenHelper(root);
   }

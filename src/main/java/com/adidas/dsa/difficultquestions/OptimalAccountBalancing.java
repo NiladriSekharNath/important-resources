@@ -50,6 +50,20 @@ public class OptimalAccountBalancing {
         transactions.set(currentTransaction, currentTransaction);
 
 
+        /**
+         * see the whole idea of the problem is we have transactions and we need to find the minimum count of transactions that
+         * are needed to simply the total transaction so we try out all solutions and try to find the minimum out of them.
+         *
+         * let's say we have this example                     f(0, [70, -200, 300, -70, -40, -100, -30])
+         *
+         * now the next calls are in this way: f(1, [0, -130, 300, -70, -40, -100, -30] f(1, [0, -200, 300, 0, -40, -100, -30])
+         *
+         * now the point if we see for currentIndex = 0 but transactionIndex = 3, if we continue after this for the transactionIndex = 4, for -40
+         * and again if we did not break the for loop for f(1, [0, -200, 300, -70, 30, -100, -30]) that could cause more time for our program to solve
+         * since we found a perfect transaction(or balance) and we don't want partial transactions so we don't need to move ahead for that currentIndex
+         *
+         *
+         */
         if (transactions.get(currentIndex) + currentTransaction == 0) {
           break;
         }

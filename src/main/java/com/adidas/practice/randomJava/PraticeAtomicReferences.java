@@ -9,6 +9,17 @@ public class PraticeAtomicReferences {
     new PraticeAtomicReferences().testAtomicReferenceList();
     CopyOnWriteArrayList<String> strings = new CopyOnWriteArrayList<>();
     strings.add("asome");
+
+    new PraticeAtomicReferences().testMod(1);
+  }
+
+  private void testMod(int each){
+    int k = 1;
+    //k = k % each;
+
+    System.out.println(k);
+    k = k / each;
+    System.out.println(k);
   }
 
   public void testAtomicReferenceList(){

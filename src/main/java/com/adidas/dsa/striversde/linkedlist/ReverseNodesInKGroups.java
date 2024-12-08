@@ -13,9 +13,9 @@ public class ReverseNodesInKGroups {
 
     kthNode = findKthNode(temp, k - 1);
 
-    ListNode next = null;
-
     if (kthNode == null) return head;
+
+    ListNode next = null;
 
     next = kthNode.next;
     kthNode.next = null;
