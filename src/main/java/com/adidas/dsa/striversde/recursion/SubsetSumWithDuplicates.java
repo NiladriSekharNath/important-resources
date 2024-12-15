@@ -32,10 +32,10 @@ public class SubsetSumWithDuplicates {
 
     resultList.add(new ArrayList<>(currentList));
 
-    for(int i = currentIndex; i < nums.length; i++){
-      if(i > currentIndex && nums[i-1] == nums[i]) continue;
-      currentList.add(nums[i]);
-      resultList.addAll(helper(nums, currentIndex + 1, currentList));
+    for(int start = currentIndex; start < nums.length; start++){
+      if(start > currentIndex && nums[start-1] == nums[start]) continue;
+      currentList.add(nums[start]);
+      resultList.addAll(helper(nums, start + 1, currentList));
       currentList.remove(currentList.size() -1) ;
 
     }

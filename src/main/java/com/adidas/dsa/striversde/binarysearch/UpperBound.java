@@ -16,7 +16,7 @@ public class UpperBound {
 
       // maybe an answer
       /**
-       * bsolutely same to lowerBound except in the "arr[mid] >= x" in lowerBound changes to "arr[mid] > x" in upper bound
+       * absolutely same to lowerBound except in the "arr[mid] >= x" in lowerBound changes to "arr[mid] > x" in upper bound
        */
       if(arr[mid] > x){
         ans = mid;

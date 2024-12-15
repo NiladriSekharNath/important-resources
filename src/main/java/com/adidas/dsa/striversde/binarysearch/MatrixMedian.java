@@ -49,6 +49,7 @@ public class MatrixMedian {
       int mid = low + (high - low)/2;
       /**
        * this is simply written in reverse
+       * we were searching <= which is highest which in the reverse way we are finding the lowest value which has greater '>'
        */
       if(numberElementsGreater(arr, mid) > requiredApproxMedian){
         ans = mid;
@@ -87,6 +88,7 @@ public class MatrixMedian {
   }
 
   public static void main(String[] args){
-    log.info("Matrix Median : {}", new MatrixMedian().matrixMedian(new int[][]{{1, 5, 7, 9, 11}, {2, 3, 4, 5, 10}, {8, 10, 12, 14, 16}}));
+    //log.info("Matrix Median : {}", new MatrixMedian().matrixMedian(new int[][]{{1, 5, 7, 9, 11}, {2, 3, 4, 5, 10}, {8, 10, 12, 14, 16}}));
+    log.info("Matrix Median : {}", new MatrixMedian().matrixMedian(new int[][]{{1, 3, 4}, {2, 4, 9}, {3, 6, 9}}));
   }
 }
