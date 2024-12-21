@@ -97,7 +97,7 @@ public class CombinationSum {
 
         currentList.add(arr[start]);
 
-        resultList.addAll(helper(arr, target - arr[start], start , currentList));
+        resultList.addAll(helperWithLoop(arr, target - arr[start], start , currentList));
 
         currentList.remove(currentList.size() - 1);
 

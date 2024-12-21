@@ -38,7 +38,7 @@ public class CombinationSumII {
 
       return resultList; }
 
-    for(int start = currentIndex; start< nums.length ; start++){
+    for(int start = currentIndex; start < nums.length ; start++){
 
       if(nums[start] <= targetSum){
         if(start > currentIndex && nums[start - 1] == nums[start]) continue;
