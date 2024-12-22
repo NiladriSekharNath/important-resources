@@ -60,7 +60,7 @@ import java.util.Queue;
  *
  * let's say for the node 8 in level 1(0 - based) instead of taking 3(2 * 1 + 1) for the node 5 we
  * do this 2 * ( 1 - 1 ) + 1 effectively getting for the node 5 index = 1, and for the node 22, when computing for the
- * node 4, instead of 5(2 * 2 + 1) we get 2 * (2 - 1) + 1 = 2 * 1 + 1 = 3
+ * node 14, instead of 5(2 * 2 + 1) we get 2 * (2 - 1) + 1 = 2 * 1 + 1 = 3
  *
  */
 public class WidthOfBinaryTree {

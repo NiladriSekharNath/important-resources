@@ -33,6 +33,13 @@ public class PowBinaryExponentiation {
 
   }
 
+  /**
+   *
+   * this works let's say we need to find x, n, -> 2^n -> 2^10
+   *
+   * 10 -> 8 -> 4 -> 2 -> 1
+   */
+
   private double calPow(double x, long n) {
     double result = 1.0;
     while (n > 0) {

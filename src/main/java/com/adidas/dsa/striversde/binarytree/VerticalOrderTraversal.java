@@ -1,12 +1,36 @@
 package com.adidas.dsa.striversde.binarytree;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
+/**
+ * Same as TopView and Bottom View we calculate the horizontal distance and keep a track of the values and add them to the
+ * TreeMap but here only difference is
+ *
+ *   for a binary tree:
+ *
+ *            1
+ *          /  \
+ *         2    3
+ *       /  \  / \
+ *      4   6 5   7
+ *
+ *
+ *    so as per the vertical order traversal we get
+ *
+ *    [-2 :[4], -1:[2], 0:[1,6,5], 1:[3], 2:[7]]
+ *
+ *    so the point is here please observer for the hd = 0, ideally it should have been 1, 5, 6 as the normal order of traversal
+ *    but here the order is 1, 6, 5, so values are sorted initially by the level if levels are same we take the lowest
+ *    value first so the order is 1, 5, 6
+ *
+ */
 public class VerticalOrderTraversal {
   public List<List<Integer>> verticalTraversal(TreeNode root) {
 
@@ -14,41 +38,52 @@ public class VerticalOrderTraversal {
 
     if(root == null) return verticalOrderTraversal;
 
-    Map<Integer, List<Integer>> hdVsValueMap = new TreeMap<>();
-    Queue<Pair<TreeNode, Integer>> queue = new LinkedList<>();
-    queue.add(new Pair<>(root, 0));
+    Map<Integer, List<NodeInfo>> hdVsValueMap = new TreeMap<>();
+    Queue<NodeInfo> queue = new LinkedList<>();
+    queue.add(new NodeInfo(root, 0, 0));
     while(!queue.isEmpty()){
 
-      Pair<TreeNode, Integer> currentPair = queue.poll();
-      TreeNode currentNode = currentPair.node;
-      Integer hd = currentPair.value;
+      NodeInfo currentNodeInfo = queue.poll();
+      TreeNode currentNode = currentNodeInfo.node;
+      Integer hd = currentNodeInfo.horizontalDistance;
+      Integer currentLevel = currentNodeInfo.level;
 
-      List<Integer> currentList = hdVsValueMap.getOrDefault(hd, new ArrayList<>());
-      currentList.add(currentNode.val);
+      List<NodeInfo> currentList = hdVsValueMap.getOrDefault(hd, new ArrayList<>());
+      currentList.add(currentNodeInfo);
 
 
       hdVsValueMap.put(hd, currentList);
 
       if(currentNode.left != null)
-        queue.add(new Pair<>(currentNode.left, hd - 1));
+        queue.add(new NodeInfo(currentNode.left, currentLevel + 1,  hd - 1));
       if(currentNode.right != null)
-        queue.add(new Pair<>(currentNode.right, hd + 1));
+        queue.add(new NodeInfo(currentNode.right, currentLevel+ 1, hd + 1));
     }
 
-    for(var eachEntry : hdVsValueMap.entrySet()){
-      verticalOrderTraversal.add(new ArrayList<>(eachEntry.getValue()));
+    for(var eachEntry: hdVsValueMap.entrySet()){
+
+      Collections.sort(eachEntry.getValue(), (entry1, entry2) -> entry1.level != entry2.level ?
+          entry1.level - entry2.level :
+          entry1.node.val - entry2.node.val);
+
+
+      verticalOrderTraversal.add(new ArrayList<>(eachEntry.getValue().stream().map(entry -> entry.node.val).collect(Collectors.toList())));
     }
+
+
 
     return verticalOrderTraversal;
   }
 
+  private class NodeInfo{
+    TreeNode node;
+    int level;
+    int horizontalDistance;
 
-  private class Pair<K,V>{
-    K node;
-    V value;
-    public Pair(K node, V value){
+    public NodeInfo(TreeNode node, int level, int horizontalDistance){
       this.node = node;
-      this.value = value;
+      this.level = level;
+      this.horizontalDistance = horizontalDistance;
     }
   }
 
