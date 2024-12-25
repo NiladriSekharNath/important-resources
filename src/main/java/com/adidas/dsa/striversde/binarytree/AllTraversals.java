@@ -32,6 +32,10 @@ public class AllTraversals {
     allTraversals.get(2).add(root.val);
   }
 
+  /**
+   *
+   *
+   */
   public static List<List<Integer>> getTreeTraversalUsingSingleStack(TreeNode root) {
     List<List<Integer>> allTraversals = new ArrayList<>();
     if(root == null) return allTraversals;

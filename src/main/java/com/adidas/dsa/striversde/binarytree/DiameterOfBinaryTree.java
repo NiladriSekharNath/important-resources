@@ -1,5 +1,9 @@
 package com.adidas.dsa.striversde.binarytree;
 
+/**
+ * Same logic as calculating the height of each node's left and right and saving the max value in
+ * a memory location
+ */
 public class DiameterOfBinaryTree {
 
   /**

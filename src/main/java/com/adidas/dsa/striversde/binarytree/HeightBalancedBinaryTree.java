@@ -5,6 +5,12 @@ package com.adidas.dsa.striversde.binarytree;
  * <p>
  * A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node
  * never differs by more than one.
+ *
+ * Solution: We are tracking the height of every node, left and right if abs(left, right) > 1 we are
+ * returning false or -1
+ *
+ * and height of a particular node is the (1 + Max(leftHeight, rightHeight)) which we are sending above
+ *
  */
 public class HeightBalancedBinaryTree {
   /**
