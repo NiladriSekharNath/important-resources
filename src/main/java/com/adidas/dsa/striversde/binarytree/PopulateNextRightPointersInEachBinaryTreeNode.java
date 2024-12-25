@@ -28,12 +28,18 @@ import java.util.Queue;
  *                             20
  *  *  *                     /    \
  *  *  *                   8 ---->  22
- *  *  *                 /   \     /   \
- *  *  *               5 --> 3 ---> 4--> 25
+ *  *  *                /   \      /   \
+ *  *  *              5 --> 3 ---> 4--> 25
  *  *
  */
 public class PopulateNextRightPointersInEachBinaryTreeNode {
 
+  /**
+   *
+   * Used two approaches here using a BFS approach for each level we take previous pointer
+   * and only assign the currentnode with the previous pointer when i > 0 (except the first node in the level)
+   * we do this steps level-by-level
+   */
   public Node connect_BFSApproach(Node root) {
         Queue<Node> queue = new LinkedList<>();
         if(root == null) return root;
@@ -62,6 +68,15 @@ public class PopulateNextRightPointersInEachBinaryTreeNode {
 
         return root;
     }
+
+  /**
+   *
+   * Recursive approach for a root we
+   * point the left child of the root to the right child for the same node
+   *
+   * only point is in the node8 after leftchild node5 points to node3 when we need to point the node
+   * right child node3 needs to point to the left child of
+   */
 
   public Node connect_recursiveApproach(Node root){
     if(root == null) return root;
