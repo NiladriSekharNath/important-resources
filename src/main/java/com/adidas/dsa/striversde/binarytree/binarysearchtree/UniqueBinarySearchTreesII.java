@@ -84,7 +84,37 @@ import java.util.Map;
  *     \    \          \    /      /    \        /    /
  *      2    5          2  4      1      5      1    4
  *
+ * and we store in results in the Map
  *
+ * like we store the results like this [1, 2] will hold the trees starting with root1 and root2 L1, L2
+ *
+ *
+ * Now for the base case:
+ *
+ * if(low > high) {
+ *       resultList.add(null);
+ *       return resultList;
+ * }
+ *
+ * The reason we add null is
+ * we try to understand when n = 1
+ *
+ * left side call happens with 1, 0,
+ * right side call happens with 2, 1
+ *
+ * Now when left and right side call happens if we return null list then it would not work :
+ *
+ * and the cross product would not iterate properly
+ *
+ * so we need to add from left -> [null], right -> [null]
+ *
+ * thus when we reach 1's loop
+ *
+ * then we get
+ *
+ *            1
+ *         /    \
+ *       null   null, which gives our answer properly
  */
 public class UniqueBinarySearchTreesII {
   public List<TreeNode> generateTrees(int n){
