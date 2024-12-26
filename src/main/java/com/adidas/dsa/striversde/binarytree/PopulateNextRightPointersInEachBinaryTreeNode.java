@@ -71,11 +71,16 @@ public class PopulateNextRightPointersInEachBinaryTreeNode {
 
   /**
    *
-   * Recursive approach for a root we
+   * Recursive approach for a root, we
    * point the left child of the root to the right child for the same node
    *
-   * only point is in the node8 after leftchild node5 points to node3 when we need to point the node
-   * right child node3 needs to point to the left child of
+   * only point is, during recursive call when root == node8, in the node8 after leftchild, node5 points to node3,
+   * we need node3 to point to the left child node4, of root node22, we check root.next != null which is done in
+   * the previous recursive call(root = node20), as this is already updated then we point using this line
+   *
+   * if(root.right != null && root.next != null) root.right.next = root.next.left;
+   *
+   * ((8).right.next == 3.next) = (22.next.left == 4)
    */
 
   public Node connect_recursiveApproach(Node root){
