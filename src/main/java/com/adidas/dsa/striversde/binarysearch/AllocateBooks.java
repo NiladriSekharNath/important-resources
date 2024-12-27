@@ -139,7 +139,7 @@ package com.adidas.dsa.striversde.binarysearch;
  *
  *
  */
-public class              AllocateBooks {
+public class AllocateBooks {
 
     public int books(int[] books, int students) {
       if (students > books.length) return -1;

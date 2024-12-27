@@ -62,7 +62,7 @@ import com.adidas.dsa.striversde.binarytree.TreeNode;
  *  stored should have been at -2, however according to the leetcode solution our answer for this case if all negative
  *  should be zero
  *
- *
+ * ---------------------------------------------------------------------------------------------------------------------
  *  Approach: Initial thought process for the question is in a binary search tree for a root
  *
  *  all left Values of a root < root.val < all right Values
@@ -151,6 +151,7 @@ import com.adidas.dsa.striversde.binarytree.TreeNode;
  *  /  \
  * -5  -2
  *
+ * so the MaxValue is initialized with 0 instead of Int_MIN
  *  --------------------------------------------------------------------------------------------------------------------
  *  Not related to the question: but if we think in the concept of the maxPathSum with the below tree where we have
  *
@@ -173,12 +174,64 @@ import com.adidas.dsa.striversde.binarytree.TreeNode;
  *  *  *                                      -3    10
  *
  *
- * but the BST we can't because though it's a BST the entire one but it would decrease our result
+ * but the BST we can't because though it's a BST the entire tree at root1, but it would decrease our result
  * ---------------------------------------------------------------------------------------------------------------------
  *
  *
  *
+ * for leftnodes when we go null in order to satisfy left.maxValue < root.val < right.minValue
+ * we have returned,  minValue = Int_max, and maxValue = Int_min and maxSum = 0
  *
+ * now
+ *                                 10
+ *  *                            /  \
+ *  *                          8    14
+ *  *                         / \  /  \
+ *  *                        7  9 12  16
+ *
+ *  now considering this example : if we take the above node if it's a lefttree and then a rightTree
+ *
+ *  Valid LeftTree to node 17:
+ *
+ *  "for root 10 when we return to node17's left
+ *  root's maxNode = Math.max(root.val(10), right.maxNode)"
+ *
+ *                                  17
+ *                                 /
+ *                                10
+ *  *                            /  \
+ *  *                          8    14
+ *  *                         / \  /  \
+ *  *                        7  9 12  16
+ *
+ *  Valid RightTree to node 6:
+ *
+ *                                   6
+ *  *                                \
+ *  *                                10
+ *  *  *                            /  \
+ *  *  *                          8    14
+ *  *  *                         / \  /  \
+ *  *  *                        7  9 12  16
+ *
+ *  for root 10 when we return to node6's right
+ *  * root's minNode = Math.min(root.val(10), left.minNode)"
+ *
+ *  we only check min in left because BST (left is min < root < right is max)
+ *
+ *  otherwise if it's not a valid BST
+ *
+ *                                     3
+ *  *                                 /
+ *  *                                10
+ *  *  *                            /  \
+ *  *  *                          8    14
+ *  *  *                         / \  /  \
+ *  *  *                        7  9 12  16
+ *
+ *
+ *  we return Math.max(left.maxSum, right.maxSum) and maxValue we set as IntMax so that we try to check for node3 we
+ *  never get a positive value.
  *
  *
  */
