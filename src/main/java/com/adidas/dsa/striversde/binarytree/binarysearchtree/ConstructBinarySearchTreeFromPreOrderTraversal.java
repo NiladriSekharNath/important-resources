@@ -33,7 +33,8 @@ import java.util.stream.Collectors;
  *  let's say for a node for our example in the node8 we have, when we go left we know left side would have an upper bound
  *  of 8 and right side should be higher, again in the node5 when we go left we know upper bound =5 at node5 for the
  *  left side, and on the rightside we are sending the same upper bound as the one flowed from node8 which is upperbound
- *  is 8, meaning we can have any number greater than 5 but less than 8 on the right of 5
+ *  is 8, meaning we can have any number greater than 5 but less than 8 on the right of 5 as 7 < 8
+ *  so 7 gets inserted at right of node5
  *
  *  Also for this we keep an global variable index in a size 1 array to keep track of the next element
  *
