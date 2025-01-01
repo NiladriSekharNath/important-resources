@@ -10,9 +10,7 @@ import java.util.PriorityQueue;
  *
  * Approach:
  *
- * Maintain a min-heap of size
- *
- * k.
+ * Maintain a min-heap of size k.
  * For each new number:
  * Add the number to the heap.
  * If the heap size exceeds
@@ -33,7 +31,7 @@ import java.util.PriorityQueue;
  *
  * min heap will hold after adding 1,2,3,4,5
  *
- * [3,4,5] highest would be 5 2nd highest would be 4 and third highest would be 3
+ * [3,4,5] highest would be 5, 2nd highest would be 4 and 3rd highest would be 3
  */
 
 public class KthLargestElementInAStream {
