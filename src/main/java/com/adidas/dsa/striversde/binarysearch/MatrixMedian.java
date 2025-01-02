@@ -45,6 +45,22 @@ public class MatrixMedian {
    *
    * so we take <=
    */
+
+  /**
+   *
+   * Approach to write this simply is we need from the first column, lowest value and the last column, highest value we know
+   * the median should be somewhere between this elements
+   *
+   * [min(arr[row][0]), max[arr[row],[colSize - 1]]
+   *
+   * since for the getting the lowest/highest we traverse the row
+   *
+   * now we need the find the lowest value (first value greater than (rowSize * columnSize)/2 )
+   *
+   * so if we find a higher value if we keep moving left till we find the lowest value and keep storing the answer with
+   * us,
+   *
+   * */
   public int matrixMedian(int[][] arr){
     int low = Integer.MAX_VALUE, high = Integer.MIN_VALUE, ans = 0, rowSize = arr.length, columnSize = arr[rowSize - 1].length;
     for(int row = 0 ; row < rowSize; row++){
