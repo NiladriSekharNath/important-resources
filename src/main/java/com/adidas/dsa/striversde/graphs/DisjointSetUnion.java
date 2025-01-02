@@ -194,21 +194,47 @@ import lombok.extern.slf4j.Slf4j;
  * ---------------------------------------------------------------------------------------------------------------------
  *   Union By Rank ----- End
  * ---------------------------------------------------------------------------------------------------------------------
+ * ---------------------------------------------------------------------------------------------------------------------
+ *
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Union By Size
+ * ---------------------------------------------------------------------------------------------------------------------
+ *
+ * Almost similar process as the union by Rank however instead of the rank we take union by size
+ *
+ * here initially the size array = [1, 1 , 1, 1, 1, 1, 1]
+ *
+ * all are initialize to 1
+ *
+ * if we add like this : -----------------------------------------------------------------------------------------------
+ *
+ * let's say "size[u] less than size[v]" we add parent[ultimateParentU] -> ultimateParent[v], represented by
  *
  *
+ *     parent[ultimateParent_u] = ultimateParent_v but here we simply increase the size
  *
+ *     let's say we have u = 1 and v = 2 (we are just pointing the root)
  *
+ *     represented by in the graph here
  *
+ *     1 u       2 v
+ *                \
+ *                 3
  *
+ *    now parent[u = 1] = 1, size[u = 1] = 1, parent[v = 2] = 2,
  *
+ *      size[v = 2] = 2 (since we have two nodes 2, 3 when we have added 3 we increase the size of 2)
  *
+ *    since size[u] < size[v]
  *
+ *    we add 1 - > 2, which is represented by
  *
+ *         2
+ *       /  \
+ *     1     3
  *
- *
- *
- *
- *
+ *   now parent[u = 1] = 2, size[u = 1] = 1, parent[v = 2] = 2, size[v = 2] = 3 [1 + 2] (here originally the size was 2 for the
+ *   node2 we add a node of size = 1, so size = 1 get added, giving total size = 3)
  *
  *
  */
