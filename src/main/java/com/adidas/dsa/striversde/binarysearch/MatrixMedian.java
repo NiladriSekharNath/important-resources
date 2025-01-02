@@ -11,8 +11,17 @@ public class MatrixMedian {
    * the highest value in matrix to find the middle most value which means since it is odd, the median will have the equal number of elements
    * to the left and the right
    *
+   * What is the search space where we will apply binary search?
+   *
+   * If we carefully observe, our answer lies between the smallest and the largest number in the given matrix. So, the search space will be [min(matrix), max(matrix)].
+   * While applying binary search how to check if an element ‘x’ is a possible median?
+   *
+   * If ‘x’ is the median, the number of elements smaller or equal to ‘x’ will be surely greater than (MXN) // 2 (integer division).
+   *
    * so the matrix has [n x m] the median would be in the index [n x m]/2 given if we take all the elements put them in a datastructure and
    * sort the elements
+   *
+   *
    *
    * The main solution is find the smallest element which has a count of elements > the "requiredApproxMedian = [n x m]/2"
    * if the total elements are in the matrix are 15 with numbers belonging in the range[1, 16] (can be duplicate and not all numbers present in the range),

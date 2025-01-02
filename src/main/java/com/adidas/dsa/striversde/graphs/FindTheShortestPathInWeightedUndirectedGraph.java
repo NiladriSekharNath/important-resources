@@ -14,7 +14,7 @@ import java.util.PriorityQueue;
  *
  *
  */
-public class ShortestPathInWeightedUndirectedGraph {
+public class FindTheShortestPathInWeightedUndirectedGraph {
   public List<Integer> shortestPath(int v, int e, int edges[][]) {
     List<List<int[]>> graph = makeGraph(edges, v + 1);
 
@@ -171,6 +171,6 @@ public class ShortestPathInWeightedUndirectedGraph {
 
 
   public static void main(String args[]){
-    new ShortestPathInWeightedUndirectedGraph().shortestPath(5, 6, new int[][]{{1, 2, 2}, {2, 5, 5}, {2, 3, 4}, {1, 4, 1}, {4, 3, 3}, {3, 5, 1}});
+    new FindTheShortestPathInWeightedUndirectedGraph().shortestPath(5, 6, new int[][]{{1, 2, 2}, {2, 5, 5}, {2, 3, 4}, {1, 4, 1}, {4, 3, 3}, {3, 5, 1}});
   }
 }
