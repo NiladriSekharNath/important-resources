@@ -109,6 +109,9 @@ public class FindTheShortestPathInWeightedUndirectedGraph {
       currentNode = parent[currentNode];
     }
 
+    /**
+     * if not specified 1 we could also add here the source node if provided
+     */
     shortestPath.add(1);
 
     /**
