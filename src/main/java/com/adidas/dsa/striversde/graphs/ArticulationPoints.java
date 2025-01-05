@@ -179,7 +179,7 @@ import java.util.List;
  *  meaning at the node 2 we have neighbour of 2 [4,5,7,8] this we after completion for cycle 7 - 8 - 9 we would be
  *
  *  doing the same again and adding 2 again so there is a chance for duplicate's so instead of adding to a list we mark
- *  this node2 in the marker arrar
+ *  this node2 in the marker array
  *
  *
  *
@@ -225,6 +225,7 @@ public class ArticulationPoints {
     int children = 0;
 
     for(int neighbour : graph.get(currentNode)){
+      if(neighbour == parent) continue;
       if(!visited[neighbour]){
         dfs(neighbour, currentNode, graph, lowestTime, currentTimer, timeOfInsertion, visited, articulationPointMarker);
 
