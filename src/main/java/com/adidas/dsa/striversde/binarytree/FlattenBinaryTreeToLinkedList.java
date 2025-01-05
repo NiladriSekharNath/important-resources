@@ -110,7 +110,7 @@ public class FlattenBinaryTreeToLinkedList {
    *
    * the morris way is pretty straight forward what we are doing is we are initially pointing the current to the root
    *
-   * and till the current is not null
+   * and till the current is not null we are in a loop
    *
    *              1
    *  *          / \

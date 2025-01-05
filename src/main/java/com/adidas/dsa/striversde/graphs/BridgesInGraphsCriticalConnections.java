@@ -156,7 +156,7 @@ import java.util.List;
  *
  *
  */
-public class CriticalConnectionsBridgesInGraphs {
+public class BridgesInGraphsCriticalConnections {
   public List<List<Integer>> criticalConnections(int n, List<List<Integer>> graph) {
     boolean[] visited = new boolean[n];
     int lowestTime[] = new int[n], timeOfInsertion[] = new int[n], currentTimer[] = new int[]{1};
