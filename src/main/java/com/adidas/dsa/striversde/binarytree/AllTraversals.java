@@ -51,7 +51,9 @@ public class AllTraversals {
       TreeNode currentNode = currentNodePair.node;
 
       if( currentNodePair.value == 1){
-
+        /**
+         * for preorder
+         */
         allTraversals.get(1).add(currentNode.val);
         currentNodePair.value++;
         stack.push(currentNodePair);
@@ -60,6 +62,9 @@ public class AllTraversals {
         }
       }
       else if(currentNodePair.value == 2){
+        /**
+         * for inorder
+         */
         allTraversals.get(0).add(currentNode.val);
         currentNodePair.value++;
         stack.push(currentNodePair);
@@ -68,6 +73,9 @@ public class AllTraversals {
         }
       }
       else{
+        /**
+         * this is for post order
+         */
         allTraversals.get(2).add(currentNode.val);
       }
 

@@ -33,6 +33,10 @@ package com.adidas.dsa.striversde.binarysearch;
  * so low = Max(0, k - n2)
  * high = min(k, n1)
  *
+ * okay in the above approach though we have written it somewhere but what is importan is both the KthElement and
+ * Median of the Two Sorted Arrays works on the idea we try to find the k elements from the left
+ *
+ * and see if we could choose some from nums1 array or nums2 array
  *
  */
 public class KthElement {

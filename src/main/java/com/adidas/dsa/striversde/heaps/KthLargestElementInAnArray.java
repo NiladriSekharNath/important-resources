@@ -96,8 +96,8 @@ public class KthLargestElementInAnArray {
 
     int left = low, right = high;
     while(left < right){
-      while(nums[left] <= pivotVal && left <= high-1 ) left++;
-      while( nums[right] > pivotVal  && right >= low + 1 ) right--;
+      while(nums[left] <= pivotVal && left <= high-1) left++;
+      while(nums[right] > pivotVal  && right >= low + 1) right--;
       if(left < right) swap(nums, left, right);
 
     }
