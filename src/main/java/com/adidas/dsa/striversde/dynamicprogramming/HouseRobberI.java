@@ -136,9 +136,6 @@ public class HouseRobberI {
    *         val4        val3         val2          val1       val0
    *                                         secondPrevious  previous   current
    *
-   *
-   *
-   *
    */
   private static int solutionWithSpaceOptimization(List<Integer> nums, int n){
 
