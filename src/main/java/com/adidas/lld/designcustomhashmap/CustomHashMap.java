@@ -2,10 +2,11 @@ package com.adidas.lld.designcustomhashmap;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Hashtable;
-import java.util.Random;
-import java.util.UUID;
-
+/**
+ *
+ * @param <K> any key
+ * @param <V> any value
+ */
 @Slf4j
 public class CustomHashMap<K,V> {
 
