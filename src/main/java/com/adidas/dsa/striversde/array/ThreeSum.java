@@ -55,7 +55,7 @@ public class ThreeSum {
    */
   public List<List<Integer>> threeSum(int[] nums) {
     Set<List<Integer>> resultList = new HashSet<>();
-    for(int i = 0 ; i< nums.length ; i++){
+    for(int i = 0 ; i < nums.length ; i++){
       Set<Integer> canBeSelectedValues = new HashSet<>();
       for(int j = i + 1; j <nums.length; j++){
         if(canBeSelectedValues.contains(-(nums[i] + nums[j]))){
@@ -107,12 +107,12 @@ public class ThreeSum {
   public List<List<Integer>> threeSumOptimised(int[] nums) {
     List<List<Integer>> resultList = new ArrayList<>();
     Arrays.sort(nums);
-    for(int i = 0 ; i< nums.length ;i++){
+    for(int i = 0 ; i < nums.length ;i++){
 
 
       // while(i > 0 && i < nums.length && nums[i] == nums[i-1]) i++;
 
-      if(i>0 && nums[i-1] == nums[i]) continue;
+      if(i > 0 && nums[i-1] == nums[i]) continue;
 
       int left = i + 1, right = nums.length - 1;
       while(left < right){

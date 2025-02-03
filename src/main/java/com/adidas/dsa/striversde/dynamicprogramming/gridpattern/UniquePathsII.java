@@ -1,4 +1,4 @@
-package com.adidas.dsa.striversde.dynamicprogramming;
+package com.adidas.dsa.striversde.dynamicprogramming.gridpattern;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -43,7 +43,7 @@ import java.util.ArrayList;
  *
  *
  */
-public class ShortestPathInAnUndirectedGraphUsingTopologicalSort {
+public class ShortestPathInADirectedGraphUsingTopologicalSort {
 
 
   public int[] shortestPath(int v, int e, int[][] edges) {
