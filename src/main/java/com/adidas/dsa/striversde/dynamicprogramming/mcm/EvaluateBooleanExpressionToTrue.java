@@ -190,6 +190,36 @@ import java.util.Arrays;
  *
  *
  *
+ * Also the mod we are following the steps
+ *
+ * for ways += way1 * way2 + way3 * way4
+ *
+ * we are making this
+ *
+ * ways = (ways + (way1 * way2) % mod + (way3 * way4) % mod) % mod
+ *
+ * also we are taking long to avoid overflowing moding and finally when returning
+ *
+ * we are doing this (int) longValue;
+ *
+ *
+ * Note :
+ *
+ * We use multiplication (`count * count`)
+ * because we are counting independent ways to evaluate the left and right subexpressions
+ * that lead to a desired outcome.
+ * Each valid way of evaluating the left subexpression
+ * can be paired with each valid way of evaluating the right subexpression.
+ * This follows the 'Rule of Product' in combinatorics,
+ * which states that if one event can occur in  x  ways and another independent event can occur in  y  ways,
+ * then both together can occur in x times y  ways.
+ *
+ * For example:
+ * - If we are evaluating `(A & B)` to `True`, both `A` and `B` must be `True`.
+ *   If `A` can be `True` in `x1` ways and `B` can be `True` in `x3` ways, then the total ways to make `(A & B)` `True` is `x1 * x3`.
+ * - Similarly, for `(A | B)`, it is `True` if at least one operand is `True`, leading to multiple valid pairings.
+ *
+ * This multiplication ensures we count all possible parenthesizations correctly.
  *
  *
  *
