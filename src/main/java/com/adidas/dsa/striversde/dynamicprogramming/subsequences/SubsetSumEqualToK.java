@@ -1,4 +1,4 @@
-package com.adidas.dsa.striversde.dynamicprogramming;
+package com.adidas.dsa.striversde.dynamicprogramming.subsequences;
 
 import java.util.Arrays;
 
@@ -188,6 +188,10 @@ public class SubsetSumEqualToK {
        */
       curr[0] = true;
 
+      /**
+       *
+       */
+
       for(int col = 1 ; col <= k ; col++){
         boolean nonPick = prev[col] ;
         boolean pick = false;
@@ -199,6 +203,7 @@ public class SubsetSumEqualToK {
         curr[col] = nonPick || pick;
 
       }
+      prev = curr;
     }
 
     return prev[k] ;

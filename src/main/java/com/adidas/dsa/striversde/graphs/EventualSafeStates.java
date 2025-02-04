@@ -97,7 +97,7 @@ public class EventualSafeStates {
    * \/    |
    *  4 -> 3 -> 5
    *
-   *  here the indgree of 6 is zero this is the safe node that has indegree = 0
+   *  here the indegree of 6 is zero this is the safe node that has indegree = 0
    *
    *  Initially the terminal nodes are those who have outdegree 0 like 6 above
    * but after reversal the terminal nodes becomes those which have indegree 0

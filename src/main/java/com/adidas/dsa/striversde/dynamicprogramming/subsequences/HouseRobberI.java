@@ -1,6 +1,5 @@
-package com.adidas.dsa.striversde.dynamicprogramming;
+package com.adidas.dsa.striversde.dynamicprogramming.subsequences;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
