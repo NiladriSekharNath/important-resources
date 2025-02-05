@@ -69,6 +69,28 @@ public class ExpressionAddOperators {
         // for multiplication
 
         currentExpression.append("*").append(currentValue);
+        /**
+         * for understanding the currentSum we are doing this extra step
+         *    prev
+         *     |
+         *    \/
+         * 1 + 2 * 3
+         *
+         * Current Sum from the previous function = 3
+         *
+         * previous = 2
+         *
+         * currSum - prev + (prev * currentValue)
+         *
+         * 3 - 2 + (2 * 3)
+         * 1 + (2 * 3)
+         *
+         * so the previous for the next function call would be (2 * 3)
+         *
+         * as we previously we go (1 + 2) * 3  -> 3 * 3 (not correct)
+         *
+         * ideally in BODMAS we should be getting like : 1 + (2 * 3)
+         */
         helper(start + 1, (prev * currentValue), (currentSum - prev) + (prev * currentValue), num, target, currentExpression, resultList);
         currentExpression.setLength(length);
 

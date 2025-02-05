@@ -128,6 +128,13 @@ public class WordLadderI {
     Set<String> wordSet = new HashSet<>(Arrays.asList(wordList));
     Queue<WordSteps> queue = new LinkedList<>();
 
+    /**
+     * we are using steps = 1 because we are couting the like this
+     * word1 -> word2 -> word3
+     *
+     * steps = 3
+     * it's only fair we count our starting step as 1 instead of 0
+     */
     queue.add(new WordSteps(startWord, 1));
     wordSet.remove(startWord);
 
