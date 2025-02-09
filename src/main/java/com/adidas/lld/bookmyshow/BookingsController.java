@@ -6,9 +6,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * this logic is working on the principle that we would have to consider each seat booking atomically to prevent thread safety
+ * this logic is working on the principle that we would have to consider each seat booking atomically to prevent thread problems
  * (booking of the same seat by multiple users) which would cause inconsistency issues now the theory part is we are assigning
- * each seat withninitialValue as null, which means the seats are unreserved and is available for booking
+ * each seat with initialValue as null, which means the seats are unreserved and is available for booking
  *
  * So since we have a list of bookings we are using a concurrentHashMap(Thread-safe) with values in it as seatId, AtomicReference<String>
  * wherein we are doing, initially the seatId is empty and if the seat is booked by a particular user we would be setting the seatId value

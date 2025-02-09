@@ -243,6 +243,15 @@ public class LongestIncreasingSubsequence {
     }
     return maxLength;
   }
+
+  /**
+   *
+   * @param list
+   * @param val
+   * @return
+   *
+   * using lowerbound or searchInsertPosition
+   */
   private static int findValUsingBs(List<Integer> list, int val){
     int low = 0, ans = list.size(), high = ans - 1;
 

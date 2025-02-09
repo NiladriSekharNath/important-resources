@@ -1,5 +1,6 @@
 package com.adidas.dsa.striversde.dynamicprogramming.lcspattern;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -12,7 +13,12 @@ public class LongestPalindromicSubsequenceUsingVirtualThreadingInLeetCode implem
     }
     public int longestPalindromeSubseq(String s)  {
 
-      Future<Integer> result = executorService.submit(() -> helper2ShiftingIndexRightTabulationSpaceOptimized(s, reverse(s)));
+      Future<Integer> result = executorService.submit(new Callable<Integer>() {
+        @Override
+        public Integer call() throws Exception {
+          return LongestPalindromicSubsequenceUsingVirtualThreadingInLeetCode.this.helper2ShiftingIndexRightTabulationSpaceOptimized(s, LongestPalindromicSubsequenceUsingVirtualThreadingInLeetCode.this.reverse(s));
+        }
+      });
       int resultVal = 0 ;
       try {
         resultVal = result.get();
