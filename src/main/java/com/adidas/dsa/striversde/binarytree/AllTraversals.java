@@ -50,7 +50,7 @@ public class AllTraversals {
       Pair<TreeNode, Integer> currentNodePair = stack.pop();
       TreeNode currentNode = currentNodePair.node;
 
-      if( currentNodePair.value == 1){
+      if(currentNodePair.value == 1){
         /**
          * for preorder
          */
