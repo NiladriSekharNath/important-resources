@@ -31,6 +31,7 @@ A curated list of Leetcode problems to practice, organized by links and titles a
 27. [Maximize the Distance Between Points on a Square](https://leetcode.com/problems/maximize-the-distance-between-points-on-a-square/)
 28. [Check if Digits Are Equal in String After Operations I](https://leetcode.com/problems/check-if-digits-are-equal-in-string-after-operations-i/description/)
 29. [Count Subarray With Score Less Than k](https://leetcode.com/problems/count-subarrays-with-score-less-than-k/description/)
+30. [DP Tree Rerooting Practice](https://www.geeksforgeeks.org/sum-of-length-of-paths-from-every-node-to-all-other-nodes-using-tree-rerooting-technique/)
 
 🚀
 More questions will be added in the future 

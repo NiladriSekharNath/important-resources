@@ -6,11 +6,7 @@ import java.util.Map;
 
 /**
  * 3. Longest Substring Without Repeating Characters
- * Solved
- * Medium
- * Topics
- * Companies
- * Hint
+ *
  * Given a string s, find the length of the longest
  * substring
  *  without duplicate characters.
@@ -91,7 +87,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
   }
 
   /**
-   * previous approach is find however it would take time for these kind of strings
+   * previous approach is fine however it would take time for these kind of strings
    *
    * abcc
    *
