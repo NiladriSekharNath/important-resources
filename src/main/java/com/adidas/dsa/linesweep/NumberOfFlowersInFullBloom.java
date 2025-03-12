@@ -20,7 +20,7 @@ public class NumberOfFlowersInFullBloom {
       count.put(entry.getKey(), currentSum);
     }
 
-    for(int i = 0 ; i<n; i++){
+    for(int i = 0 ; i < n; i++){
       Map.Entry<Integer, Integer> entry = count.floorEntry(people[i]);
       if(entry != null) result[i] = entry.getValue();
     }

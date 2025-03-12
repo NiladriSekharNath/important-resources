@@ -30,8 +30,6 @@ public class PalindromicPartioning {
         resultList.addAll(helper(s, start + 1, currentList));
         currentList.remove(currentList.size() - 1);
       }
-
-
     }
 
     return resultList;

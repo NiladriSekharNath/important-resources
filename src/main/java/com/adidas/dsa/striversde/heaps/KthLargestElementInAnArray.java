@@ -69,7 +69,7 @@ public class KthLargestElementInAnArray {
   }
 
   public int quickSelect(int[] nums,int low, int high, int kthSmallest) {
-    if(low==high) return low;
+    if(low == high) return low;
     int pivot = partition(nums,low, high);
 
     if (pivot == kthSmallest)

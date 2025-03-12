@@ -127,7 +127,7 @@ public class MinimumPathSumInGrid {
           if(row > 0) top = prevRow[col];
           if(col > 0) left = currRow[col - 1];
 
-          currRow[col] =grid[row][col] + Math.min(top, left) ;
+          currRow[col] = grid[row][col] + Math.min(top, left) ;
         }
       }
 

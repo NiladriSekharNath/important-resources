@@ -1,0 +1,41 @@
+# Leetcode Problems to Try
+
+A curated list of Leetcode problems to practice, organized by links and titles and will be strike-through when completed!
+
+1. [Maximum Sum of 3 Non-Overlapping Subarrays](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/)
+2. [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/description/)
+3. [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/description/)
+4. [Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/description/)
+5. [Count Vowel Strings in Ranges](https://leetcode.com/problems/count-vowel-strings-in-ranges/description/)
+6. [Zigzag Grid Traversal with Skip](https://leetcode.com/problems/zigzag-grid-traversal-with-skip/description/)
+7. [Check if a Parentheses String Can Be Valid](https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/description/)
+8. [Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders/description/)
+9. [Sum of Nodes with Even-Valued Grandparent](https://leetcode.com/problems/sum-of-nodes-with-even-valued-grandparent/description/)
+10. [Shortest Distance After Road Addition Queries I](https://leetcode.com/problems/shortest-distance-after-road-addition-queries-i/description/)
+11. [Minimum Limit of Balls in a Bag](https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag/description/)
+12. [Minimum Operations to Make Array Values Equal to K](https://leetcode.com/problems/minimum-operations-to-make-array-values-equal-to-k/description/)
+13. [Two Best Non-Overlapping Events](https://leetcode.com/problems/two-best-non-overlapping-events/description/)
+14. [Amount of Time for Binary Tree to Be Infected](https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/)
+15. [Count Ways to Build Good Strings](https://leetcode.com/problems/count-ways-to-build-good-strings/description/)
+16. [Minimum Moves to Make Array Complementary](https://leetcode.com/problems/minimum-moves-to-make-array-complementary/description/)
+17. [Minimum Length of String After Operations](https://leetcode.com/problems/minimum-length-of-string-after-operations/)
+18. [Find the Prefix Common Array of Two Arrays](https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays/)
+19. [Next Greater Element III](https://leetcode.com/problems/next-greater-element-iii/description/)
+20. [Minimum Cost to Make at Least One Valid Path in a Grid](https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/)
+21. [Grid Game](https://leetcode.com/problems/grid-game/description/)
+22. [Maximum Employees to Be Invited to a Meeting](https://leetcode.com/problems/maximum-employees-to-be-invited-to-a-meeting/)
+23. [Redundant Connection](https://leetcode.com/problems/redundant-connection/)
+24. [Remove All Occurrences of a Substring](https://leetcode.com/problems/remove-all-occurrences-of-a-substring/)
+25. [Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)
+26. [Most Profitable Path in a Tree](https://leetcode.com/problems/most-profitable-path-in-a-tree/)
+27. ~~[Maximize the Distance Between Points on a Square](https://leetcode.com/problems/maximize-the-distance-between-points-on-a-square/)~~
+28. [Check if Digits Are Equal in String After Operations I](https://leetcode.com/problems/check-if-digits-are-equal-in-string-after-operations-i/description/)
+29. [Count Subarray With Score Less Than k](https://leetcode.com/problems/count-subarrays-with-score-less-than-k/description/)
+30. [DP Tree Rerooting Practice](https://www.geeksforgeeks.org/sum-of-length-of-paths-from-every-node-to-all-other-nodes-using-tree-rerooting-technique/)
+31. [Time Taken To Mark All Nodes](https://leetcode.com/problems/time-taken-to-mark-all-nodes/)
+32. [Find the Median of the uniqueness Array](https://leetcode.com/problems/find-the-median-of-the-uniqueness-array/description/)
+33. [Collect Coins in a Tree](https://leetcode.com/problems/collect-coins-in-a-tree/description/)
+34. [Fruits into baskets III](https://leetcode.com/problems/fruits-into-baskets-iii/description/)
+🚀
+More questions will be added in the future 
+

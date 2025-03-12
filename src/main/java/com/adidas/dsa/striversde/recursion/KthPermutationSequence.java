@@ -43,9 +43,11 @@ public class KthPermutationSequence {
       numbers.add(i);
       fact = fact * i ;
     }
+
     numbers.add(n);
     k -= 1;
     StringBuilder sequence = new StringBuilder();
+
     while(true){
       sequence.append(numbers.get(k/fact));
       numbers.remove(k/fact);
