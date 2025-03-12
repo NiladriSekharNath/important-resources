@@ -1,4 +1,4 @@
-package com.adidas.dsa.difficultquestions;
+package com.adidas.dsa.difficultquestions.optimalaccountbalancing.code;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -138,6 +138,7 @@ public class LFUCache {
 
       /**
        * if the size > capacity we simply find the minimumFreqCacheList and return from the tail
+       * meaning we have more keys than the desired capacity
        */
       if(size > capacity){
         LRUCache minFreqList = frequencyMap.get(minFrequency);

@@ -1,4 +1,4 @@
-package com.adidas.dsa.dailyquestions;
+package com.adidas.dsa.difficultquestions.goodquestions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,6 +106,7 @@ import java.util.List;
  *     node 3 (timer = 0) -> node1 (timer = 1) -> node0 (timer = 2)
  *
  *     (idea is we have to start the timer from bob)
+ *     (also the above approach works since it's a tree and there would be only path to reach 0 from BOB)
  *
  *
  *
@@ -138,7 +139,7 @@ import java.util.List;
 public class MostProfitablePathInATree {
   public int mostProfitablePath(int[][] edges, int bob, int[] amount) {
     int size = amount.length, tIAlice[] = new int[size], tIBob[] = new int[size], currentSum[] = new int[]{0},
-        maxSum[] = new int[]{-(int)1e9};
+        maxSum[] = new int[]{-(int) 1e9};
 
     for(int i = 0 ; i < size; i++){
       tIAlice[i] = -1 ;
@@ -260,6 +261,119 @@ public class MostProfitablePathInATree {
 
     return graph;
   }
+
+  /**
+   *
+   * @param edges
+   * @param bob
+   * @param amount
+   * @return
+   *
+   * so this approach takes inspiration from the above approach combining both the dfs into 1 dfs
+   *
+   *
+   *                                  A (0)
+   *                                  0
+   *                                  |
+   *                                  1  (1)
+   *                                  |
+   *                              2 - 3 - 4
+   *                             (3) (2)  3
+   *                                  B
+   *
+   * Now if you see the above problem what we are doing starting from Alice directly when we find bob then the
+   * actual calculation start
+   *
+   * 0 -> 1 -> 3  since Bob -> 3
+   *
+   * we mark when we find currentNode == Bob as  '0'
+   * otherwise we mark it as 'n' (signifying unreachable from bob)
+   *
+   *
+   * now in the backtracking step at 3 when we move to 1 we try to update the
+   *
+   * distanceFromBob[cN -> 1] = Math.min(distanceFromBob[cN -> 1], 1 + distanceFromBob[neighbour -> 3])
+   *
+   * so the idea is when we are at
+   *
+   * 0 -> 1 -> 3
+   *
+   * and then we backtrack 3 -> 1 -> 0
+   *
+   * from when we come back to 1 we set the value as if we found a better value using the neighbour + 1
+   *
+   * since node1 is at distance = 1 from node3(bob node)
+   *
+   * now once we found the distance we already have the timer value with us
+   *
+   * now for a currentNode we are trying to calculate
+   *
+   * if we see the currentTime to reach a certainNode (cN) given by timer is < distanceFromBob[cN]
+   *
+   * that means Alice reaches first so we add the total value
+   *
+   * here it means timer is less distanceFrom
+   *
+   *
+   *
+   *
+   *
+   * this solution
+   *
+   *
+   */
+  public int mostProfitablePathApproach2SinglePass(int[][] edges, int bob, int[] amount) {
+    int size = amount.length, distanceFromBob[] = new int[size];
+    List<List<Integer>> graph = makeGraph(edges, size);
+
+    return helper(0, -1, 0, bob, distanceFromBob, graph, amount, size);
+  }
+
+  private int helper(int cN, int parent, int timer, int bob, int[] distanceFromBob, List<List<Integer>> graph, int[] amount, int size){
+    int valueToAdd = 0, maxChildValue = -(int)1e9;
+
+    if(cN == bob){
+      distanceFromBob[cN] = 0 ;
+    }
+    else {
+      distanceFromBob[cN] = size;
+    }
+
+    for(int neighbour : graph.get(cN)){
+      if(neighbour != parent){
+        maxChildValue = Math.max(maxChildValue, helper(neighbour, cN, timer + 1, bob, distanceFromBob, graph, amount, size));
+
+        /**
+         * this step we are calculating the distanceOfEachNodeFromBob
+         */
+
+        distanceFromBob[cN] = Math.min(distanceFromBob[cN], distanceFromBob[neighbour] + 1);
+      }
+    }
+
+    /**
+     *
+     * Alice reaches first
+     *
+     * (timer at 0 < distanceFromBob[0] -> 3)
+     *
+     * since Alice reaches node0 first
+     *
+     */
+    if(timer < distanceFromBob[cN]){
+      valueToAdd += amount[cN];
+    }
+    /**
+     * if both reaches the same timer then we add half the value
+     */
+    else if(distanceFromBob[cN] == timer){
+      valueToAdd += amount[cN]/2;
+    }
+
+
+    return maxChildValue == -(int)1e9 ? valueToAdd : valueToAdd + maxChildValue;
+  }
+
 
   public static void main(String[] args){
     new MostProfitablePathInATree().mostProfitablePath(new int[][]{{0, 1}, {1, 2}, {1, 3}, {3, 4}}, 3, new int[]{-2, 4, 2, -4, 6});
