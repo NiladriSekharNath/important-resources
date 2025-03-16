@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+/**
+ * for this question we are maintaining a monotonic increasing stack
+ */
 public class NextGreaterElement {
   public int[] nextGreaterElement(int[] nums1, int[] nums2) {
     var nge = ngeBuilderReturningMap(nums2);
