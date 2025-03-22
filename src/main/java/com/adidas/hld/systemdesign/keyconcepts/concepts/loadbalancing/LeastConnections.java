@@ -1,4 +1,4 @@
-package com.adidas.hld.systemdesign.keyconcepts.loadbalancing;
+package com.adidas.hld.systemdesign.keyconcepts.concepts.loadbalancing;
 
 import java.util.ArrayList;
 import java.util.Collections;

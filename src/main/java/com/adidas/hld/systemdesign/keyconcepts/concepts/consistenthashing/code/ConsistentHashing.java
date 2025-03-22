@@ -1,4 +1,4 @@
-package com.adidas.hld.systemdesign.keyconcepts.consistenthashing.code;
+package com.adidas.hld.systemdesign.keyconcepts.concepts.consistenthashing.code;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

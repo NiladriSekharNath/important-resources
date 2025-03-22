@@ -1,4 +1,4 @@
-package com.adidas.hld.systemdesign.keyconcepts.ratelimiting;
+package com.adidas.hld.systemdesign.keyconcepts.concepts.ratelimiting;
 
 import java.time.Instant;
 

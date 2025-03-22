@@ -41,6 +41,9 @@ A curated list of Leetcode problems to practice, organized by links and titles a
 37. [Learn FenWick Tree](https://cp-algorithms.com/data_structures/fenwick.html)
 38. [Learn Trie](https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp)
 39. [Learn Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html)
+40. [Learn BitMasking and related](https://leetcode.com/discuss/post/6543135/all-about-bit-manipulation-by-leadingthe-qkqn/)
+41. [Minimum-number-of-k-consecutive-bit-flips](https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips/description/)
+42. [Number of ways to arrive at a destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/description/)
 🚀
 ## More questions will be added in the future 
 
