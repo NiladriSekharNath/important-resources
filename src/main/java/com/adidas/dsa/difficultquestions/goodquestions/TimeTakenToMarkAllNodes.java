@@ -177,7 +177,7 @@ public class TimeTakenToMarkAllNodes {
     // The candidate contributed by nei is:
     int candidate = getNodeValue(nei) + dp[nei][0];
     // If nei provided the best contribution to cur, then after removing it,
-    // cur’s new best from children becomes its previous second-best.
+    // cur’s new best from children becomes from it's previous second best.
     int newParentContribution = (candidate == dp[cur][0]) ? dp[cur][1] : dp[cur][0];
     // Update cur's dp: note that dp[cur] stores only the contribution from its children.
     dp[cur][0] = newParentContribution ;

@@ -107,7 +107,7 @@ public class KthLargestElementInAnArray {
 
   }
 
-  public void swap(int[]nums,int index1, int index2) {
+  public void swap(int[] nums,int index1, int index2) {
     int temp = nums[index2];
     nums[index2] = nums[index1];
     nums[index1] = temp;

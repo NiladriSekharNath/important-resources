@@ -33,7 +33,7 @@ import java.util.Map;
  * Same logic as the "CountOfNiceSubArrays or BinarySubArrayWithSum" Question
  *
  */
-public class SubarraysWithExactlyKDifferentIntegers {
+public class CountSubarraysWithExactlyKDifferentIntegers {
   public int subarraysWithKDistinct(int[] nums, int k) {
 
     return helper(nums, k) - helper(nums, k - 1);
