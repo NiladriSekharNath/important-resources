@@ -78,7 +78,7 @@ import java.util.Map;
  *
  */
 public class LongestSubArrayWithSumK {
-  public static int longestSubarrayWithSumK(int []nums, long k) {
+  public static int longestSubarrayWithSumK(int [] nums, long k) {
     long prefixSum = 0;
     int maxLength = 0;
     Map<Long, Integer> prefixSumIndex = new HashMap<>();

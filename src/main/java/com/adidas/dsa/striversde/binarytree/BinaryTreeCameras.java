@@ -127,7 +127,7 @@ public class  BinaryTreeCameras {
       minCamera[0]++;
       return 1;
     }
-    if( left == 1 || right == 1){
+    if(left == 1 || right == 1){
       return 0;
     }
     return -1;
