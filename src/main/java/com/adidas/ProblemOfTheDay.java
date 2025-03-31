@@ -4,6 +4,7 @@ import org.springframework.beans.factory.parsing.Problem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -140,10 +141,55 @@ public class ProblemOfTheDay {
 
   }
 
+  public List<Integer> partitionLabels(String s) {
+    int start[] = new int[26], end[] = new int[26];
+
+    Arrays.fill(start, -1);
+    Arrays.fill(end, -1);
+
+    for(int cI = 0; cI < s.length() ; cI++){
+      char cL = s.charAt(cI);
+
+      if(start[cL - 'a'] == -1) start[cL - 'a'] = cI ;
+      end[cL - 'a'] =  cI;
+    }
+
+
+    List<int[]> values = new ArrayList<>();
+
+    for(int cI = 0 ; cI < 26; cI++){
+      if(start[cI] != -1)
+        values.add(new int[]{start[cI], end[cI]});
+    }
+
+    Collections.sort(values, (entry1, entry2) -> entry1[0] - entry2[0]);
+
+    int[] previous = values.get(0);
+
+    List<Integer> result = new ArrayList<>();
+
+    for(int cI = 1; cI < values.size(); cI++){
+      int currentPair[] = values.get(cI);
+      if(previous[1] > currentPair[0]){
+        previous[1] = Math.max(previous[1], currentPair[1]);
+      }
+      else{
+        result.add(previous[1] - previous[0] + 1);
+        previous = currentPair;
+      }
+    }
+
+    result.add(previous[1] - previous[0] + 1);
+
+    return result;
+  }
+
 
 
 
   public static void main(String[] args){
     //new ProblemOfTheDay().checkValidCuts(5, new int[][]{{1, 0, 5, 2}, {0, 2, 2, 4}, {3, 2, 5, 3}, {0, 4, 4, 5}});
+    //new ProblemOfTheDay().partitionLabels("ababcc");
+    new ProblemOfTheDay().partitionLabels("vhaagbqkaq");
   }
 }

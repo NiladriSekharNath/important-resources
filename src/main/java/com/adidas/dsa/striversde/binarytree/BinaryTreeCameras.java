@@ -110,6 +110,20 @@ public class  BinaryTreeCameras {
     return minCamera[0];
 
   }
+
+  /**
+   *
+   * @param root
+   * @param minCamera
+   * @return
+   *
+   *
+   *         0
+   *        /
+   *       0
+   *      / \
+   *     0   0
+   */
   private int helper2(TreeNode root, int[] minCamera){
     if(root.left == null && root.right == null){
       return -1 ;

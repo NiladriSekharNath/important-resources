@@ -43,7 +43,13 @@ A curated list of Leetcode problems to practice, organized by links and titles a
 39. [Learn Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html)
 40. [Learn BitMasking and related](https://leetcode.com/discuss/post/6543135/all-about-bit-manipulation-by-leadingthe-qkqn/)
 41. [Minimum-number-of-k-consecutive-bit-flips](https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips/description/)
-42. [Number of ways to arrive at a destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/description/)
+42. ~~[Number of ways to arrive at a destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/description/)~~
+43. [Majority Element II](https://leetcode.com/problems/majority-element-ii/description/)
+44. [Minimum-Index-Of-a-valid-split](https://leetcode.com/problems/minimum-index-of-a-valid-split/description/?envType=daily-question&envId=2025-03-27)
+45. [Apply-Operations-to-maximize-score](https://leetcode.com/problems/apply-operations-to-maximize-score/description/)
+46. [Maximum Number of points from grid queries](https://leetcode.com/problems/maximum-number-of-points-from-grid-queries/description/)
+47. [Shortest Distance after road addition queries](https://leetcode.com/problems/shortest-distance-after-road-addition-queries-ii/description/)
+48. [Sum of Subarray Minimums](https://leetcode.com/problems/sum-of-subarray-minimums/description/)
 🚀
 ## More questions will be added in the future 
 
