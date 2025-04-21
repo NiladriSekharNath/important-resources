@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -184,6 +185,25 @@ public class ProblemOfTheDay {
     return result;
   }
 
+  public int numRabbits(int[] nums) {
+    int total = 0;
+
+    Set<Integer> set = new HashSet<>();
+
+    for(int num : nums){
+      int count = 0;
+      for(int entry : set){
+        count += entry + 1;
+      }
+
+      if(count > num + 1){
+        set.add(num);
+        total = count;
+      }
+    }
+
+    return total;
+  }
 
 
 
@@ -191,5 +211,7 @@ public class ProblemOfTheDay {
     //new ProblemOfTheDay().checkValidCuts(5, new int[][]{{1, 0, 5, 2}, {0, 2, 2, 4}, {3, 2, 5, 3}, {0, 4, 4, 5}});
     //new ProblemOfTheDay().partitionLabels("ababcc");
     new ProblemOfTheDay().partitionLabels("vhaagbqkaq");
+
+    System.out.println(new ProblemOfTheDay().numRabbits(new int[]{1, 1, 2, 3}));
   }
 }

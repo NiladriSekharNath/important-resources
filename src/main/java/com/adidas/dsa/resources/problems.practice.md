@@ -50,6 +50,11 @@ A curated list of Leetcode problems to practice, organized by links and titles a
 46. [Maximum Number of points from grid queries](https://leetcode.com/problems/maximum-number-of-points-from-grid-queries/description/)
 47. [Shortest Distance after road addition queries](https://leetcode.com/problems/shortest-distance-after-road-addition-queries-ii/description/)
 48. [Sum of Subarray Minimums](https://leetcode.com/problems/sum-of-subarray-minimums/description/)
+49. [Bit Manipulation](https://www.youtube.com/watch?v=DDIVTbatu1Y)
+50. [Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/description/)
+51. [Count Number of Powerful Integers](https://leetcode.com/problems/count-the-number-of-powerful-integers/?envType=daily-question&envId=2025-04-12)
+52. [Painting the walls](https://leetcode.com/problems/painting-the-walls/description/)
+53. [Kth-Ancestor-of-BinaryTree](https://leetcode.com/problems/kth-ancestor-of-a-tree-node/description/)
 🚀
 ## More questions will be added in the future 
 
