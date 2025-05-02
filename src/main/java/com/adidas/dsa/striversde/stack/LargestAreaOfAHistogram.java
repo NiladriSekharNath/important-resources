@@ -99,6 +99,7 @@ public class LargestAreaOfAHistogram {
   public int largestRectangleArea(int[] heights) {
     int n = heights.length, maxArea = 0;
     Stack<Integer> stack = new Stack<>();
+
     for(int cI = 0; cI < n; cI++){
       while(!stack.isEmpty() && heights[stack.peek()] >= heights[cI]){
         int currEleIdx = stack.pop(), currElementHeight = heights[currEleIdx], nextSmallerEleIdx = cI,

@@ -56,6 +56,9 @@ public class PowBinaryExponentiation {
   }
 
   public static void main(String[] args){
+
+    new PowBinaryExponentiation().myPow(2, 10);
+
     new PowBinaryExponentiation().myPow(2.00000, -2147483648);
   }
 }

@@ -43,7 +43,22 @@ A curated list of Leetcode problems to practice, organized by links and titles a
 39. [Learn Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html)
 40. [Learn BitMasking and related](https://leetcode.com/discuss/post/6543135/all-about-bit-manipulation-by-leadingthe-qkqn/)
 41. [Minimum-number-of-k-consecutive-bit-flips](https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips/description/)
-42. [Number of ways to arrive at a destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/description/)
+42. ~~[Number of ways to arrive at a destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/description/)~~
+43. [Majority Element II](https://leetcode.com/problems/majority-element-ii/description/)
+44. [Minimum-Index-Of-a-valid-split](https://leetcode.com/problems/minimum-index-of-a-valid-split/description/?envType=daily-question&envId=2025-03-27)
+45. [Apply-Operations-to-maximize-score](https://leetcode.com/problems/apply-operations-to-maximize-score/description/)
+46. [Maximum Number of points from grid queries](https://leetcode.com/problems/maximum-number-of-points-from-grid-queries/description/)
+47. [Shortest Distance after road addition queries](https://leetcode.com/problems/shortest-distance-after-road-addition-queries-ii/description/)
+48. [Sum of Subarray Minimums](https://leetcode.com/problems/sum-of-subarray-minimums/description/)
+49. [Bit Manipulation](https://www.youtube.com/watch?v=DDIVTbatu1Y)
+50. [Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/description/)
+51. [Count Number of Powerful Integers](https://leetcode.com/problems/count-the-number-of-powerful-integers/?envType=daily-question&envId=2025-04-12)
+52. [Painting the walls](https://leetcode.com/problems/painting-the-walls/description/)
+53. [Kth-Ancestor-of-BinaryTree](https://leetcode.com/problems/kth-ancestor-of-a-tree-node/description/)
+54. [Count of Interesting Subarrays](https://leetcode.com/problems/count-of-interesting-subarrays/description/?envType=daily-question&envId=2025-04-25)
+55. [Count subarrays of fixed bounds](https://leetcode.com/problems/count-subarrays-with-fixed-bounds/description/?envType=daily-question&envId=2025-04-26)
+56. [Hand-of-straights](https://leetcode.com/problems/hand-of-straights/)
+57. [Maximum Number of Tasks you can assign](https://leetcode.com/problems/maximum-number-of-tasks-you-can-assign/description/)
 🚀
 ## More questions will be added in the future 
 

@@ -65,14 +65,14 @@ public class WeightedRoundRobin {
    * currentWeight = 5
    * currentIndex = -1
    * 🔸 Iteration Flow:
-   * Iteration	Index	Current Weight	Selected Server	Explanation
-   * 1	0	5	Server1	Server1 is chosen because weight 5 >= 5.
-   * 2	1	5	Skip	Server2 weight is 1, less than 5 — skipped.
-   * 3	2	5	Skip	Server3 weight is 1, less than 5 — skipped.
-   * 4	0	4	Server1	After completing a full loop, weight decreases.
-   * 5	1	4	Skip	Server2 weight still less than 4 — skipped.
-   * 6	2	4	Skip	Server3 weight still less than 4.
-   * 7	0	3	Server1	Server1 chosen again, weight dropped to 3.
+   * Iteration	Index	CurrentWeight	SelectedServer	Explanation
+   * 1	         0	    5	             Server1	    Server1 is chosen because weight 5 >= 5.
+   * 2	         1	    5	                          Skip	Server2 weight is 1, less than 5 —> skipped.
+   * 3	         2	    5	                          Skip	Server3 weight is 1, less than 5 —> skipped.
+   * 4	         0	    4	             Server1	    After completing a full loop, weight decreases.
+   * 5	         1	    4	                          Skip	Server2 weight still less than 4 — skipped.
+   * 6	         2	    4	                          Skip	Server3 weight still less than 4.
+   * 7	         0	    3	             Server1	    Server1 chosen again, weight dropped to 3.
    *
    * 🔥 Key Insights:
    * Full loop required to drop weight:
