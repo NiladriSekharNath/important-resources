@@ -206,6 +206,76 @@ public class ProblemOfTheDay {
   }
 
 
+  public int countLargestGroup(int n) {
+    int digSum[] = new int[10];
+
+    for(int cNum = 1; cNum <= n ; cNum++){
+      int sumOfDigits = getDigSum(cNum);
+
+      digSum[sumOfDigits]++;
+    }
+
+    int maxValue = 0, count = 0;
+
+    for(int num : digSum){
+      maxValue = Math.max(maxValue, num);
+    }
+
+    for(int num : digSum){
+      if(num == maxValue) count++;
+    }
+
+    return count;
+  }
+
+  private int getDigSum(int num){
+    int digitSum  = 0 ;
+    while(num > 0){
+      digitSum += num % 10;
+      num /= 10;
+
+    }
+
+    if(digitSum > 9) digitSum = getDigSum(digitSum);
+
+    return digitSum;
+  }
+
+  public long countSubarrays1(int[] nums, long k) {
+    int left = 0, right = 0, n = nums.length;
+    long sum = 0, count = 0, prefixSum[] = new long[n];
+
+    prefixSum[0] = nums[0];
+
+    for(int cI = 1; cI < n ; cI++){
+      prefixSum[cI] = prefixSum[cI - 1] + nums[cI];
+    }
+
+    while(right < n){
+      sum = getSum(prefixSum, left, right);
+      while(sum >= k){
+        left++;
+        sum += getSum(prefixSum, left, right);
+      }
+      if(sum < k){
+        count += right - left + 1;
+      }
+
+      right++;
+    }
+
+    return count;
+
+  }
+
+
+
+  private long getSum(long[] prefixSum, int left, int right){
+    //System.out.println(String.format("left: %s, right: %s", left, right));
+    if(left > right) return 0;
+    return (left == 0 ? prefixSum[right] : prefixSum[right] - prefixSum[left - 1]) * (right - left + 1);
+  }
+
 
   public static void main(String[] args){
     //new ProblemOfTheDay().checkValidCuts(5, new int[][]{{1, 0, 5, 2}, {0, 2, 2, 4}, {3, 2, 5, 3}, {0, 4, 4, 5}});
@@ -213,5 +283,7 @@ public class ProblemOfTheDay {
     new ProblemOfTheDay().partitionLabels("vhaagbqkaq");
 
     System.out.println(new ProblemOfTheDay().numRabbits(new int[]{1, 1, 2, 3}));
+    System.out.println("sum of digits of 19 : " + new ProblemOfTheDay().getDigSum(19));
+    System.out.println("Count subarrays : " + new ProblemOfTheDay().countSubarrays1(new int[]{2, 1, 4, 3, 5}, 10));
   }
 }

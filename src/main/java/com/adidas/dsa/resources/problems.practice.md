@@ -55,6 +55,10 @@ A curated list of Leetcode problems to practice, organized by links and titles a
 51. [Count Number of Powerful Integers](https://leetcode.com/problems/count-the-number-of-powerful-integers/?envType=daily-question&envId=2025-04-12)
 52. [Painting the walls](https://leetcode.com/problems/painting-the-walls/description/)
 53. [Kth-Ancestor-of-BinaryTree](https://leetcode.com/problems/kth-ancestor-of-a-tree-node/description/)
+54. [Count of Interesting Subarrays](https://leetcode.com/problems/count-of-interesting-subarrays/description/?envType=daily-question&envId=2025-04-25)
+55. [Count subarrays of fixed bounds](https://leetcode.com/problems/count-subarrays-with-fixed-bounds/description/?envType=daily-question&envId=2025-04-26)
+56. [Hand-of-straights](https://leetcode.com/problems/hand-of-straights/)
+57. [Maximum Number of Tasks you can assign](https://leetcode.com/problems/maximum-number-of-tasks-you-can-assign/description/)
 🚀
 ## More questions will be added in the future 
 
