@@ -59,6 +59,10 @@ A curated list of Leetcode problems to practice, organized by links and titles a
 55. [Count subarrays of fixed bounds](https://leetcode.com/problems/count-subarrays-with-fixed-bounds/description/?envType=daily-question&envId=2025-04-26)
 56. [Hand-of-straights](https://leetcode.com/problems/hand-of-straights/)
 57. [Maximum Number of Tasks you can assign](https://leetcode.com/problems/maximum-number-of-tasks-you-can-assign/description/)
+58. [Push Dominoes](https://leetcode.com/problems/push-dominoes/?envType=daily-question&envId=2025-05-12)
+59. [Maximum Domino Rotations For Equal Row](https://leetcode.com/problems/minimum-domino-rotations-for-equal-row/?envType=daily-question&envId=2025-05-12)
+60. [Number of equivalent Domino Pairs](https://leetcode.com/problems/number-of-equivalent-domino-pairs/?envType=daily-question&envId=2025-05-12)
+61. [Domino And Tromino Tiling](https://leetcode.com/problems/domino-and-tromino-tiling/?envType=daily-question&envId=2025-05-12)
 🚀
 ## More questions will be added in the future 
 

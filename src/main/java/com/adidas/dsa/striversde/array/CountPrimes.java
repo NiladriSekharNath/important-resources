@@ -1,5 +1,8 @@
 package com.adidas.dsa.striversde.array;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class CountPrimes {
 
   public int[] countPrimes(int n){
@@ -20,6 +23,7 @@ public class CountPrimes {
 
   public static void main(String[] args){
     new CountPrimes().countPrimes(30);
+
   }
 
 }
