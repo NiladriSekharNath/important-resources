@@ -241,40 +241,46 @@ public class ProblemOfTheDay {
     return digitSum;
   }
 
-  public long countSubarrays1(int[] nums, long k) {
-    int left = 0, right = 0, n = nums.length;
-    long sum = 0, count = 0, prefixSum[] = new long[n];
 
-    prefixSum[0] = nums[0];
 
-    for(int cI = 1; cI < n ; cI++){
-      prefixSum[cI] = prefixSum[cI - 1] + nums[cI];
-    }
 
-    while(right < n){
-      sum = getSum(prefixSum, left, right);
-      while(sum >= k){
-        left++;
-        sum += getSum(prefixSum, left, right);
-      }
-      if(sum < k){
-        count += right - left + 1;
-      }
 
-      right++;
-    }
 
-    return count;
 
+  private final int MOD = (int)1e9 + 7;
+  public int lengthAfterTransformations(String s, int t, List<Integer> nums) {
+    return 0;
   }
 
+  public void sortColors(int[] nums) {
+    int index = 0, count[] = new int[3];
 
-
-  private long getSum(long[] prefixSum, int left, int right){
-    //System.out.println(String.format("left: %s, right: %s", left, right));
-    if(left > right) return 0;
-    return (left == 0 ? prefixSum[right] : prefixSum[right] - prefixSum[left - 1]) * (right - left + 1);
+    for(int num : nums){
+      count[num]++;
+    }
+    //nums = new int[nums.length];
+    int arrayIndex = 0;
+    while(index < 3){
+      for(int i = 0; i < count[index]; i++){
+        nums[arrayIndex++] = index;
+      }
+      index++;
+    }
   }
+
+  public List<Integer> findWordsContaining(String[] words, char x) {
+    List<Integer> result = new ArrayList<>();
+
+    int index = 0;
+
+    for(int cI = 0; cI < words.length ; cI++){
+      if("aaa".indexOf(x) > 0)
+        result.add(cI);
+    }
+
+    return result;
+  }
+
 
 
   public static void main(String[] args){
@@ -284,6 +290,17 @@ public class ProblemOfTheDay {
 
     System.out.println(new ProblemOfTheDay().numRabbits(new int[]{1, 1, 2, 3}));
     System.out.println("sum of digits of 19 : " + new ProblemOfTheDay().getDigSum(19));
-    System.out.println("Count subarrays : " + new ProblemOfTheDay().countSubarrays1(new int[]{2, 1, 4, 3, 5}, 10));
+
+
+    System.out.println("Length After Transformation: " + new ProblemOfTheDay().lengthAfterTransformations("abcyy", 2,
+            Arrays.asList(1, 1, 1, 1, 1,
+                          1, 1, 1, 1, 1,
+                          1, 1, 1, 1, 1,
+                          1, 1, 1, 1, 1,
+                          1, 1, 1, 1, 1, 2)));
+
+    new ProblemOfTheDay().sortColors(new int[]{2, 0, 2, 1, 1, 0});
+
+    new ProblemOfTheDay().findWordsContaining(new String[]{"abc", "bcd", "aaa", "cbc"}, 'a');
   }
 }

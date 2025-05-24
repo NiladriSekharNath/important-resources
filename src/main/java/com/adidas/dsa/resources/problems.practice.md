@@ -63,6 +63,11 @@ A curated list of Leetcode problems to practice, organized by links and titles a
 59. [Maximum Domino Rotations For Equal Row](https://leetcode.com/problems/minimum-domino-rotations-for-equal-row/?envType=daily-question&envId=2025-05-12)
 60. [Number of equivalent Domino Pairs](https://leetcode.com/problems/number-of-equivalent-domino-pairs/?envType=daily-question&envId=2025-05-12)
 61. [Domino And Tromino Tiling](https://leetcode.com/problems/domino-and-tromino-tiling/?envType=daily-question&envId=2025-05-12)
+62. [Total characters in string after transformation](https://leetcode.com/problems/total-characters-in-string-after-transformations-ii/)
+63. [Painting a grid with three different colours](https://leetcode.com/problems/painting-a-grid-with-three-different-colors/description/?envType=daily-question&envId=2025-05-18)
+64. [Zero Array Transformations-III](https://leetcode.com/problems/zero-array-transformation-iii/?envType=daily-question&envId=2025-05-22)
+65. [Asteroid Collisions](https://leetcode.com/problems/asteroid-collision/)
+66. [Find the maximum sum of node values](https://leetcode.com/problems/find-the-maximum-sum-of-node-values/?envType=daily-question&envId=2025-05-23)
 🚀
 ## More questions will be added in the future 
 
